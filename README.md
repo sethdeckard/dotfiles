@@ -1,0 +1,4 @@
+dotfiles
+========
+
+.vimrc, .gitconfig, etc
