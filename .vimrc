@@ -26,6 +26,8 @@ nore , ;
 if has("gui_running")
    colorscheme evening 
    set guioptions-=T
+   autocmd vimenter * NERDTree
+   set transparency=10
 endif
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
