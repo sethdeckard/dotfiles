@@ -23,6 +23,11 @@ hi CursorLine term=none cterm=none ctermbg=8
 nore ; :
 nore , ;
 
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 if has("gui_running")
    colorscheme evening 
    set guioptions-=T
