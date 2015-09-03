@@ -8,9 +8,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias r="rails"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias r="rails"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -41,7 +41,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git) 
+plugins=(git rails bundler rake) 
 #rails ruby brew gem)
 
 source $ZSH/oh-my-zsh.sh
@@ -55,3 +55,10 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bi
 #go devel
 export GOPATH=$HOME/Projects/go
 PATH=$PATH:$GOPATH/bin
+
+# python
+export PATH=/usr/local/share/python:$PATH
+source /usr/local/bin/virtualenvwrapper.sh
+
+# stuff installed in home directory
+export PATH=/Users/seth/bin:$PATH
