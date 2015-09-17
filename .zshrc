@@ -47,7 +47,7 @@ plugins=(git rails bundler rake)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/heroku/bin:/Users/seth/.rvm/gems/ruby-2.0.0-p247/bin:/Users/seth/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/seth/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/seth/.rvm/bin:/Users/seth/.ec2/bin:/Users/seth/.rvm/bin
+export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/Applications/Postgres.app/Contents/MacOS/bin:/usr/local/heroku/bin:/Users/seth/.rvm/gems/ruby-2.0.0-p247/bin:/Users/seth/.rvm/gems/ruby-2.0.0-p247@global/bin:/Users/seth/.rvm/rubies/ruby-2.0.0-p247/bin:/Users/seth/.rvm/bin:/Users/seth/.ec2/bin:/Users/seth/.rvm/bin
 
 # added by travis gem
 [ -f /Users/seth/.travis/travis.sh ] && source /Users/seth/.travis/travis.sh
