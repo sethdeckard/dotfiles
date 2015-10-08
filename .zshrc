@@ -53,7 +53,7 @@ plugins=(git rails bundler ruby rake)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -89,4 +89,7 @@ eval "$(rbenv init -)"
 
 # home bin
 export PATH="$HOME/bin:$PATH"
+
+# /usr/local/bin first
+export PATH="/usr/local/bin:$PATH"
 
