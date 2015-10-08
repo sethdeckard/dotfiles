@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'neilagabriel/vim-geeknote'
+Plugin 'trusktr/seti.vim'
 call vundle#end()            
 filetype plugin indent on 
 
@@ -40,7 +41,7 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 if has("gui_running")
-   colorscheme evening 
+   colorscheme seti
    set guioptions-=T
    autocmd vimenter * NERDTree
    set transparency=10
