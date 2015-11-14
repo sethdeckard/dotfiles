@@ -9,6 +9,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'trusktr/seti.vim'
+Plugin 'ledger/vim-ledger'
+Plugin 'rizzatti/dash.vim'
 call vundle#end()            
 filetype plugin indent on 
 
