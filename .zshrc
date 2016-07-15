@@ -87,5 +87,5 @@ eval "$(rbenv init -)"
 export PATH="$HOME/bin:$PATH"
 
 # /usr/local/bin first
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
