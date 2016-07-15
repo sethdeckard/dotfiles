@@ -2,7 +2,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = vim
 [user]
-	email = seth@deckard.us
+	email = seth@deckard.me
 	name = Seth Deckard
 [diff]
 	tool = diffmerge
