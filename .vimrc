@@ -7,15 +7,23 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'neilagabriel/vim-geeknote'
 Plugin 'trusktr/seti.vim'
 Plugin 'ledger/vim-ledger'
 Plugin 'rizzatti/dash.vim'
+Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            
 filetype plugin indent on 
 
 syntax on
 filetype plugin indent on
+
+set colorcolumn=80
 
 set noerrorbells
 set visualbell
@@ -49,11 +57,17 @@ if has("gui_running")
    set transparency=10
 endif
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-highlight Pmenu ctermbg=238 gui=bold ctermfg=3
-
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
+
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
