@@ -54,7 +54,6 @@ if has("gui_running")
    colorscheme seti
    set guioptions-=T
    autocmd vimenter * NERDTree
-   set transparency=10
 endif
 
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -71,3 +70,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" spell check by file type
+autocmd FileType Markdown setlocal spell
+autocmd FileType HTML setlocal spell
+autocmd FileType eruby setlocal spell
