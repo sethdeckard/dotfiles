@@ -1,6 +1,6 @@
 " Vundle settings
 set nocompatible
-filetype off 
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,7 +20,7 @@ Plugin 'Valloric/YouCompleteMe'
 " color schemes
 Plugin 'trusktr/seti.vim'
 call vundle#end()
-filetype plugin indent on 
+filetype plugin indent on
 
 " basic editor config
 syntax on
@@ -84,5 +84,12 @@ au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
 
 " remove trailing whitespace
-autocmd BufWritePre *.rb :%s/\s\+$//e
-autocmd BufWritePre *.vimrc :%s/\s\+$//e
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,ruby,python,vim autocmd BufWritePre <buffer>
+  \ :call <SID>StripTrailingWhitespaces()
