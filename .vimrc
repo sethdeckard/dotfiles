@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'rizzatti/dash.vim'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'vim-airline/vim-airline'
