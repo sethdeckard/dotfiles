@@ -17,6 +17,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/ShowTrailingWhitespace'
 " color schemes
 Plugin 'trusktr/seti.vim'
 call vundle#end()
@@ -31,14 +32,28 @@ set colorcolumn=80
 set noerrorbells
 set visualbell
 set t_vb=
+set gcr=a:blinkon0
 
+set autoindent
+set smartindent
+set smarttab
 set expandtab
 set shiftwidth=2
 set tabstop=2
+set softtabstop=2
+
+set wrap
+set linebreak
+
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
 
 set ruler
 set number
 set showcmd
+set noshowmode
+set autoread
 
 set backspace=2
 
@@ -55,13 +70,18 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" mvim settings
 if has("gui_running")
   set guioptions-=T
   autocmd vimenter * NERDTree
 endif
 
+set guifont=Hack:h12
+
 " NERDTree settings
 let NERDTreeShowHidden=1
+" show current file in tree
+map <Leader>r <esc>:NERDTreeFind<cr>
 " \n NERDTree tabs toggle
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
