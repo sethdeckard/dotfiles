@@ -60,7 +60,9 @@ if has("gui_running")
   autocmd vimenter * NERDTree
 endif
 
-" \n nerd tree tabs toggle
+" NERDTree settings
+let NERDTreeShowHidden=1
+" \n NERDTree tabs toggle
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " syntastic settings
