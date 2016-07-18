@@ -8,9 +8,6 @@ Plugin 'VundleVim/Vundle.vim'
 " plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'neilagabriel/vim-geeknote'
-Plugin 'ledger/vim-ledger'
 Plugin 'rizzatti/dash.vim'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'vim-airline/vim-airline'
@@ -18,6 +15,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
+Plugin 'ctrlpvim/ctrlp.vim'
 " color schemes
 Plugin 'trusktr/seti.vim'
 call vundle#end()
@@ -27,12 +25,11 @@ filetype plugin indent on
 syntax on
 colorscheme seti
 
-set colorcolumn=80
+set hidden
 
 set noerrorbells
 set visualbell
 set t_vb=
-set gcr=a:blinkon0
 
 set autoindent
 set smartindent
@@ -44,6 +41,7 @@ set softtabstop=2
 
 set wrap
 set linebreak
+set colorcolumn=80
 
 set scrolloff=8
 set sidescrolloff=15
@@ -59,6 +57,7 @@ set backspace=2
 
 set cul
 hi CursorLine term=none cterm=none ctermbg=8
+set gcr=a:blinkon0
 
 " avoid wearing out shift key
 nore ; :
@@ -73,17 +72,28 @@ nnoremap <C-l> <C-w>l
 " mvim settings
 if has("gui_running")
   set guioptions-=T
-  autocmd vimenter * NERDTree
+  autocmd vimenter * NERDTree " open NERDTree automatically
 endif
 
 set guifont=Hack:h12
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" ctrlp settings
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+let g:ctrlp_working_path_mode = 'r'
 
 " NERDTree settings
 let NERDTreeShowHidden=1
 " show current file in tree
 map <Leader>r <esc>:NERDTreeFind<cr>
 " \n NERDTree tabs toggle
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 " syntastic settings
 set statusline+=%#warningmsg#
