@@ -9,6 +9,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'rizzatti/dash.vim'
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'vim-airline/vim-airline'
@@ -20,12 +21,16 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-rails'
 " color schemes
 Plugin 'trusktr/seti.vim'
+" icons
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 filetype plugin indent on
 
 " basic editor config
 syntax on
 colorscheme seti
+
+set encoding=utf8 " vim-devicons glyphs
 
 set hidden
 
@@ -77,7 +82,7 @@ if has("gui_running")
   autocmd vimenter * NERDTree " open NERDTree automatically
 endif
 
-set guifont=Hack:h12
+set guifont=Knack\ Nerd\ Font:h12
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -110,6 +115,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = '/Users/seth/.rbenv/shims/rubocop'
+
+" vim-devicons settings
+let g:airline_powerline_fonts = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " spell check by file type
 autocmd FileType Markdown setlocal spell
