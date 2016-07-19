@@ -1,7 +1,7 @@
-" Vundle settings
 set nocompatible
 filetype off
 
+" Vundle settings
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -17,6 +17,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-rails'
 " color schemes
 Plugin 'trusktr/seti.vim'
 call vundle#end()
@@ -90,11 +91,14 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'r'
 
 " NERDTree settings
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
 " show current file in tree
 map <Leader>r <esc>:NERDTreeFind<cr>
-" \n NERDTree tabs toggle
+" \n NERDTree toggle
 map <Leader>n :NERDTreeToggle<CR>
+" close NERDTree if only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
+  \ && b:NERDTree.isTabTree()) | q | endif
 
 " syntastic settings
 set statusline+=%#warningmsg#
@@ -118,10 +122,10 @@ au BufNewFile,BufRead *.jst.ejs set filetype=html
 
 " remove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
 
 autocmd FileType c,cpp,ruby,python,vim autocmd BufWritePre <buffer>
