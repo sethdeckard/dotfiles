@@ -21,6 +21,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-rails'
 " color schemes
 Plugin 'trusktr/seti.vim'
+Plugin 'altercation/vim-colors-solarized'
 " icons
 Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
@@ -28,7 +29,8 @@ filetype plugin indent on
 
 " basic editor config
 syntax on
-colorscheme seti
+set background=dark
+colorscheme solarized
 
 set encoding=utf8 " vim-devicons glyphs
 
@@ -80,6 +82,7 @@ nnoremap <C-l> <C-w>l
 if has("gui_running")
   set guioptions-=T
   autocmd vimenter * NERDTree " open NERDTree automatically
+  autocmd vimenter * wincmd p " focus main window
 endif
 
 set guifont=Knack\ Nerd\ Font:h12
@@ -97,6 +100,7 @@ let g:ctrlp_working_path_mode = 'r'
 
 " NERDTree settings
 let NERDTreeShowHidden = 1
+let NERDTreeMouseMode = 3
 " show current file in tree
 map <Leader>r <esc>:NERDTreeFind<cr>
 " \n NERDTree toggle
