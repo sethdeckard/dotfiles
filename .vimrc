@@ -30,11 +30,12 @@ filetype plugin indent on
 " basic editor config
 syntax on
 set background=dark
-colorscheme solarized
+colorscheme seti
 
 set encoding=utf8 " vim-devicons glyphs
 
 set hidden
+set noswapfile
 
 set noerrorbells
 set visualbell
