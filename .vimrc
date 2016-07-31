@@ -79,6 +79,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap Y y$
+
 " mvim settings
 if has("gui_running")
   set guioptions-=T
