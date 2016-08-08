@@ -83,9 +83,12 @@ export VISUAL="mvim"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+# pyenv
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 # home bin
 export PATH="$HOME/bin:$PATH"
 
 # /usr/local/bin first
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
