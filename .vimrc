@@ -29,7 +29,7 @@ filetype plugin indent on
 " basic editor config
 syntax on
 set background=dark
-colorscheme seti
+colorscheme solarized
 
 set encoding=utf8 " vim-devicons glyphs
 
