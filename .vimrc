@@ -83,8 +83,8 @@ nnoremap Y y$
 " mvim settings
 if has("gui_running")
   set guioptions-=T
-  autocmd vimenter * NERDTree " open NERDTree automatically
-  autocmd vimenter * wincmd p " focus main window
+  set guioptions-=r
+  set guioptions-=L
 endif
 
 set guifont=Knack\ Nerd\ Font:h12
@@ -103,6 +103,8 @@ let g:ctrlp_working_path_mode = 'r'
 " NERDTree settings
 let NERDTreeShowHidden = 1
 let NERDTreeMouseMode = 3
+autocmd vimenter * NERDTree " open NERDTree automatically
+autocmd vimenter * wincmd p " focus main window
 " show current file in tree
 map <Leader>r <esc>:NERDTreeFind<cr>
 " \n NERDTree toggle
