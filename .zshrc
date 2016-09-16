@@ -94,3 +94,6 @@ export PATH="$HOME/bin:$PATH"
 
 # /usr/local/bin first
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# syntax highlighting in shell
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
