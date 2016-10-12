@@ -136,6 +136,7 @@ autocmd FileType eruby setlocal spell
 " force file type for unknowns
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
+au BufNewFile,BufRead *.es6 set filetype=javascript
 
 " remove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
