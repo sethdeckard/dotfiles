@@ -81,10 +81,6 @@ export VISUAL="mvim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 # pyenv
 export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -97,3 +93,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # syntax highlighting in shell
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# rbenv
+eval "$(rbenv init -)"
