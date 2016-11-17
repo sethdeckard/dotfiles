@@ -84,7 +84,13 @@ export VISUAL="mvim"
 # home bin
 export PATH="$HOME/bin:$PATH"
 
-# /usr/local/bin first
+# golang paths
+export GOPATH=$HOME/Projects/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+# /usr/local/bin first for homebrew
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # syntax highlighting in shell
