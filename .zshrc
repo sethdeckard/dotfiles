@@ -84,6 +84,9 @@ export VISUAL="mvim"
 # home bin
 export PATH="$HOME/bin:$PATH"
 
+# depot_tools for chromium
+export PATH="$PATH:/$HOME/Projects/chromium/depot_tools"
+
 # golang paths
 export GOPATH=$HOME/Projects/go
 export GOROOT=/usr/local/opt/go/libexec
