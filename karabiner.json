@@ -21,6 +21,10 @@
             "simple_modifications": {
                 "caps_lock": "escape",
                 "escape": "caps_lock"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
