@@ -18,6 +18,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-rails'
+Plugin 'fatih/vim-go'
 " color schemes
 Plugin 'trusktr/seti.vim'
 Plugin 'altercation/vim-colors-solarized'
