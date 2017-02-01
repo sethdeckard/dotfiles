@@ -69,6 +69,9 @@ set cul
 hi CursorLine term=none cterm=none ctermbg=8
 set gcr=a:blinkon0
 
+" show airline on start
+set laststatus=2
+
 " avoid wearing out shift key
 nore ; :
 nore , ;
@@ -122,6 +125,17 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = '/Users/seth/.rbenv/shims/rubocop'
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
+" vim-go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_list_type = 'quickfix'
 
 " vim-devicons settings
 let g:airline_powerline_fonts = 1
