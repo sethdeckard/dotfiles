@@ -1,4 +1,5 @@
 bundler
 pry
+rubocop
 iStats
 mailcatcher
