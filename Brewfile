@@ -188,7 +188,6 @@ cask 'firefox'
 cask 'font-lato'
 cask 'font-work-sans'
 cask 'iterm2'
-cask 'karabiner-elements'
 cask 'keepassx'
 cask 'keepassxc'
 cask 'libreoffice'
@@ -205,13 +204,9 @@ mas 'Xcode', id: 497799835
 mas 'Affinity Designer', id: 824171161
 mas 'Twitter', id: 409789998
 mas 'Airmail 2', id: 918858936
-mas 'Permanent Eraser', id: 500541921
 mas 'RadarScope', id: 432027450
 mas 'TweetDeck', id: 485812721
 mas 'The Unarchiver', id: 425424353
-mas 'Kindle', id: 405399194
 mas '2Do', id: 477670270
-mas 'PST Bridge', id: 457503727
 mas 'Slack', id: 803453959
 mas '1Blocker', id: 1107421413
-mas 'Blackmagic Disk Speed Test', id: 425264550
