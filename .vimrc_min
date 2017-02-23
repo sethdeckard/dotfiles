@@ -1,0 +1,101 @@
+let &rtp = substitute(&rtp, '\.vim\>', '.vim_min', 'g')
+
+set nocompatible
+filetype off
+
+" Vundle settings
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+" plugins
+Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/ShowTrailingWhitespace'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'fatih/vim-go'
+" color schemes
+Plugin 'altercation/vim-colors-solarized'
+call vundle#end()
+filetype plugin indent on
+
+" basic editor config
+syntax on
+set background=dark
+colorscheme solarized
+
+set hidden
+set noswapfile
+
+set noerrorbells
+set visualbell
+set t_vb=
+
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+
+set wrap
+set linebreak
+set colorcolumn=80
+
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
+
+set ruler
+set number
+set showcmd
+set noshowmode
+set autoread
+
+set backspace=2
+
+set cul
+hi CursorLine term=none cterm=none ctermbg=8
+set gcr=a:blinkon0
+
+" avoid wearing out shift key
+nore ; :
+nore , ;
+
+" easier move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap Y y$
+
+" mvim settings
+if has("gui_running")
+  set guioptions-=T
+  set guioptions-=r
+  set guioptions-=L
+endif
+
+set guifont=Hack:h12
+
+" spell check by file type
+autocmd FileType Markdown setlocal spell
+autocmd FileType HTML setlocal spell
+autocmd FileType eruby setlocal spell
+
+" force file type for unknowns
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.jst.ejs set filetype=html
+au BufNewFile,BufRead *.es6 set filetype=javascript
+
+" remove trailing whitespace
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,ruby,python,vim autocmd BufWritePre <buffer>
+  \ :call <SID>StripTrailingWhitespaces()
