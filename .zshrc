@@ -81,6 +81,8 @@ export VISUAL="mvim"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias vimmin="vim -u ~/.dotfiles/.vimrc_min"
+
 # home bin
 export PATH="$HOME/bin:$PATH"
 
