@@ -1,5 +1,6 @@
+## begin oh-my-zsh config
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="agnoster" 
+ZSH_THEME="powerlevel9k/powerlevel9k" 
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -46,6 +47,7 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 plugins=(git rails bundler ruby rake)
 
 source $ZSH/oh-my-zsh.sh
+## end oh-my-zsh config
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
