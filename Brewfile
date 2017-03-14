@@ -75,6 +75,8 @@ brew 'isl'
 brew 'libmpc'
 brew 'gcc'
 brew 'fftw'
+brew 'pcre2'
+brew 'fish'
 brew 'fltk'
 brew 'freexl'
 brew 'gawk'
@@ -116,6 +118,8 @@ brew 'jemalloc'
 brew 'ledger'
 brew 'libev'
 brew 'libevent'
+brew 'libgsf'
+brew 'libpst', args: ['with-python']
 brew 'libssh2'
 brew 'libtermkey'
 brew 'libuv'
@@ -142,11 +146,11 @@ brew 'pstoedit'
 brew 'pwsafe'
 brew 'pyenv'
 brew 'pyenv-virtualenv'
-brew 'qt@5.7'
+brew 'qt5'
 brew 'sip', args: ['with-python3']
 brew 'pyqt5'
 brew 'qscintilla2'
-brew 'qt5'
+brew 'qt@5.7'
 brew 'ruby-build'
 brew 'rbenv'
 brew 'rbenv-default-gems'
@@ -199,14 +203,14 @@ cask 'transmission'
 cask 'vagrant'
 cask 'virtualbox'
 cask 'virtualbox-extension-pack'
-mas 'Affinity Photo', id: 824183456
-mas 'Xcode', id: 497799835
+mas '1Blocker', id: 1107421413
+mas '2Do', id: 477670270
 mas 'Affinity Designer', id: 824171161
-mas 'Twitter', id: 409789998
+mas 'Affinity Photo', id: 824183456
 mas 'Airmail 2', id: 918858936
 mas 'RadarScope', id: 432027450
-mas 'TweetDeck', id: 485812721
-mas 'The Unarchiver', id: 425424353
-mas '2Do', id: 477670270
 mas 'Slack', id: 803453959
-mas '1Blocker', id: 1107421413
+mas 'The Unarchiver', id: 425424353
+mas 'TweetDeck', id: 485812721
+mas 'Twitter', id: 409789998
+mas 'Xcode', id: 497799835
