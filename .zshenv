@@ -1,3 +1,16 @@
-export PYENV_ROOT=/usr/local/var/pyenv
-export SWIFTENV_ROOT=/usr/local/var/swiftenv
-export HOMEBREW_GITHUB_API_TOKEN="$(cat ~/.config/homebrew/.api_token)"
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin
+# depot_tools for chromium
+PATH=$PATH:/$HOME/Projects/chromium/depot_tools
+# golang paths
+GOPATH=$HOME/Projects/go
+GOROOT=/usr/local/opt/go/libexec
+PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+# /usr/local/bin first for homebrew
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
+DEFAULT_USER="seth"
+EDITOR="vim"
+VISUAL="mvim"
+DOTFILES=$HOME/.dotfiles
+PYENV_ROOT=/usr/local/var/pyenv
+SWIFTENV_ROOT=/usr/local/var/swiftenv
+HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
