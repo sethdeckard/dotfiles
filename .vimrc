@@ -28,8 +28,13 @@ call vundle#end()
 filetype plugin indent on
 
 " basic editor config
-syntax on
+syntax enable
+
+" theme
 set background=dark
+let g:solarized_visibility = 'high'
+let g:solarized_contrast = 'high'
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 set encoding=utf8 " vim-devicons glyphs
@@ -66,7 +71,6 @@ set autoread
 set backspace=2
 
 set cul
-hi CursorLine term=none cterm=none ctermbg=8
 set gcr=a:blinkon0
 
 " show airline on start
