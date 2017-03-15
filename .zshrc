@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-alias vimm="vim -u ~/.dotfiles/.vimrc_min"
+alias vimm="vim -u $DOTFILES/.vimrc_min"
 
 # syntax highlighting in shell
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
