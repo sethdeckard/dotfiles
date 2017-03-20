@@ -6,11 +6,13 @@ export GOPATH=$HOME/Projects/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 # homebrew
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+if [[ "$OSTYPE" == darwin* ]]; then
+  export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
+fi
 
 export EDITOR="vim"
 export VISUAL="mvim"
-export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
 export PYENV_ROOT=/usr/local/var/pyenv
 
 DOTFILES=$HOME/.dotfiles
