@@ -58,7 +58,7 @@ alias cx=convox
 alias vimm="vim -u $DOTFILES/.vimrc_min"
 
 # rbenv
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
