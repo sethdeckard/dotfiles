@@ -44,7 +44,7 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails bundler ruby rake zsh-autosuggestions)
+plugins=(git rails bundler ruby rake zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 ## end oh-my-zsh config
@@ -56,9 +56,6 @@ source $ZSH/oh-my-zsh.sh
 
 alias cx=convox
 alias vimm="vim -u $DOTFILES/.vimrc_min"
-
-# syntax highlighting in shell
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rbenv
 eval "$(rbenv init -)"
