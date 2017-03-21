@@ -1,3 +1,4 @@
+ln -sf $PWD/.gemrc ~/.gemrc
 ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
 ln -sf $PWD/.irbrc ~/.irbrc
