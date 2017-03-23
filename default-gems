@@ -1,5 +1,7 @@
 bundler
 pry
+awesome_print
 rubocop
 iStats
 mailcatcher
+bundler-audit
