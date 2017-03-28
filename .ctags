@@ -1,0 +1,10 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=log
+--exclude=vendor
+--exclude=bundle
+--exclude=*.min.js
+--exclude=jquery.*.js
+--exclude=jquery-*.js
+--languages=-html,sql
