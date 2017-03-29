@@ -5,3 +5,4 @@ rubocop
 iStats
 mailcatcher
 bundler-audit
+ripper-tags
