@@ -11,4 +11,4 @@ ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
-ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems
+if which rbenv > /dev/null; then ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems; fi
