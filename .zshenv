@@ -1,8 +1,7 @@
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin
+export PATH=$PATH:$HOME/bin
 # golang paths
 export GOPATH=$HOME/Projects/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
 # homebrew
 if [[ "$OSTYPE" == darwin* ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
