@@ -97,3 +97,6 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+## Yarn
+node_modules/
