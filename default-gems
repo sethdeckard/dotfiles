@@ -1,8 +1,9 @@
-bundler
-pry
 awesome_print
-rubocop
+bundler
+bundler-audit
+dotenv
 iStats
 mailcatcher
-bundler-audit
+pry
 ripper-tags
+rubocop
