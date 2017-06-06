@@ -1,9 +1,14 @@
 --recurse=yes
 --tag-relative=yes
 --exclude=.git
---exclude=log
---exclude=vendor
+--exclude=bin
 --exclude=bundle
+--exclude=bower.json
+--exclude=coverage
+--exclude=log
+--exclude=public
+--exclude=tmp
+--exclude=vendor
 --exclude=*.min.js
 --exclude=jquery.*.js
 --exclude=jquery-*.js
