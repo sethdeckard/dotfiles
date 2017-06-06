@@ -5,6 +5,7 @@ ln -sf $PWD/.ctags ~/.ctags
 ln -sf $PWD/.gemrc ~/.gemrc
 ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
+ln -sf $PWD/.git_template ~/.git_template
 ln -sf $PWD/.irbrc ~/.irbrc
 ln -sf $PWD/.pryrc ~/.pryrc
 ln -sf $PWD/.ssh_config ~/.ssh/config
