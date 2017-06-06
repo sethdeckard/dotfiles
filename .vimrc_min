@@ -13,6 +13,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 " color schemes
 Plugin 'altercation/vim-colors-solarized'
