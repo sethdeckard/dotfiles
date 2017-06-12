@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+brew update
+if brew outdated |grep 'postgresql'; then 
+  echo 'New version of postgresql found.'
+  brew services stop postgresql
+  brew upgrade 
+  brew services start postgresql
+else 
+  brew upgrade
+fi

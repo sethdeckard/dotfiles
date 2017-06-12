@@ -13,4 +13,9 @@ ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
+if [ ! -d ~/bin ]; then mkdir ~/bin; fi
+ln -sf $PWD/bin/app_loader ~/bin/app_loader
+ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
+ln -sf $PWD/bin/imgcat ~/bin/imgcat
+ln -sf $PWD/bin/imgls ~/bin/imgls
 if which rbenv > /dev/null; then ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems; fi
