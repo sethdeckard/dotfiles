@@ -166,5 +166,5 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,ruby,eruby,markdown,python,vim autocmd BufWritePre <buffer>
+autocmd FileType c,cpp,ruby,eruby,markdown,python,sh,vim autocmd BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
