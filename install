@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+if [ ! -d ~/.config ]; then mkdir ~/.config; fi
 ln -sf $PWD/.aprc ~/.aprc
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
@@ -7,6 +8,7 @@ ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
 ln -sfh $PWD/.git_template ~/.git_template
 ln -sf $PWD/.irbrc ~/.irbrc
+ln -sfh $PWD/powerline ~/.config/powerline
 ln -sf $PWD/.pryrc ~/.pryrc
 ln -sf $PWD/.ssh_config ~/.ssh/config
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
@@ -14,7 +16,6 @@ ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
 if [ ! -d ~/bin ]; then mkdir ~/bin; fi
-ln -sf $PWD/bin/app_loader ~/bin/app_loader
 ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
