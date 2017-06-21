@@ -1,7 +1,10 @@
+# user scripts
 export PATH=$PATH:$HOME/bin
+
 # golang paths
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
+
 # homebrew
 if [[ "$OSTYPE" == darwin* ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
@@ -10,8 +13,8 @@ fi
 
 export EDITOR="vim"
 export VISUAL="mvim"
-export PYENV_ROOT=/usr/local/var/pyenv
 
+# dotfiles source directory
 DOTFILES=$HOME/.dotfiles
 
 # zsh theme settings
