@@ -1,6 +1,6 @@
 ## begin oh-my-zsh config
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="powerlevel9k/powerlevel9k" 
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -44,7 +44,7 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails bundler ruby rake zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+plugins=(bundler git rails rake ruby zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 ## end oh-my-zsh config
@@ -53,10 +53,7 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-alias brewsu=brew_safe_upgrade
-alias cx=convox
-alias vimm="vim -u $DOTFILES/.vimrc_min"
+source $ZSH_CUSTOM/aliases/main.zsh
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
