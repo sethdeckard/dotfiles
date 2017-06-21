@@ -1,10 +1,21 @@
 #!/usr/bin/env bash
+eval "$(pyenv init -)"
 brew update
-if brew outdated |grep 'postgresql'; then 
+
+if [ -z "$(brew outdated)" ]; then
+  exit 1
+else
+  pyenv shell system
+  pyenv shell
+fi
+
+if brew outdated |grep 'postgresql'; then
   echo 'New version of postgresql found.'
   brew services stop postgresql
-  brew upgrade 
+  brew upgrade
   brew services start postgresql
-else 
+else
   brew upgrade
 fi
+
+pyenv shell -
