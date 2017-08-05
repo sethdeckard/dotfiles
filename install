@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
+
 if [ ! -d ~/.config ]; then mkdir ~/.config; fi
+
+# use ~/.vim and ~/.vimrc with neovim
+ln -sfh ~/.vim ~/.config/nvim
+ln -sf ~/.vim/init.vim ~/.vimrc
+
 ln -sf $PWD/.aprc ~/.aprc
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
@@ -15,8 +21,10 @@ ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
+
 if [ ! -d ~/bin ]; then mkdir ~/bin; fi
 ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
+
 if which rbenv > /dev/null; then ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems; fi
