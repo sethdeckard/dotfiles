@@ -13,6 +13,12 @@ Various configuration files for my development environment (vim, zsh, tmux, etc.
 2. Homebrew: if on macOS, it will modify `PATH` and assign `HOMEBREW_GITHUB_API_TOKEN` from a text file in `~/.config/homebrew/.api_token`.
 3. A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font.
 
+```bash
+$ brew tap caskroom/fonts
+$ brew cask install font-hack
+$ brew cask install font-hack-nerd-font
+```
+
 ### tmux Requirements
 
 1. [Powerline](https://github.com/powerline/powerline) (requires Python)
