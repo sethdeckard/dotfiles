@@ -6,6 +6,8 @@
   email = seth@deckard.me
 [includeIf "gitdir:~/Projects/acme/"]
   path = ~/Projects/acme/.gitconfig
+[includeIf "gitdir:~/projects/acme/"]
+  path = ~/projects/acme/.gitconfig
 [diff]
   tool = diffmerge
 [difftool "diffmerge"]
