@@ -4,8 +4,11 @@ Various configuration files for my development environment (vim, zsh, tmux, etc.
 
 1. Clone to a directory of your choice (ex: `~/.dotfiles`.)
 2. Pull all git submodules: `git submodule update --init --recursive`
-3. Optionally install rbenv to allow for creation of `default-gems` symlink during install.
+3. Optionally install rbenv and [rbenv-default-gems](https://github.com/rbenv/rbenv-default-gems) to allow for creation of `default-gems` symlink during install.
 4. Run `./install` to create or recreate the symlinks.
+
+rbenv-default-gems:
+`git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems`
 
 ### ZSH Requirements
 
