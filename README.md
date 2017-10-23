@@ -16,6 +16,8 @@ rbenv-default-gems:
 2. Homebrew: if on macOS, it will modify `PATH` and assign `HOMEBREW_GITHUB_API_TOKEN` from a text file in `~/.config/homebrew/.api_token`.
 3. A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font.
 
+### Install required fonts via homebrew
+
 ```bash
 $ brew tap caskroom/fonts
 $ brew cask install font-hack
@@ -24,7 +26,8 @@ $ brew cask install font-hack-nerd-font
 
 ### tmux Requirements
 
-1. [Powerline](https://github.com/powerline/powerline) (requires Python)
+1. [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+1. [Powerline](https://github.com/powerline/powerline) (requires a proper Python, not system)
 
 ### Vim Requirements
 
@@ -35,6 +38,11 @@ $ brew cask install font-hack-nerd-font
 ### Assumptions
 
 1. Assumes `~/projects/` for root project directory (used in `GO_PATH`, etc.), not configurable but could be made to be so.
+
+### TODO
+
+1. Automate install of latest stable python via pyenv and install my default packages via pip (glances, powerline, etc).
+2. Dynamically generate section of tmux.conf that references powerline path based on above (can't seem to use ENV in tmux.conf).
 
 #### License
 
