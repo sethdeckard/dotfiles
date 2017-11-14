@@ -20,6 +20,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'fatih/vim-go'
+Plugin 'eraserhd/vim-ios'
+Plugin 'vim-scripts/cocoa.vim'
 " color schemes
 Plugin 'trusktr/seti.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -96,7 +98,7 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-set guifont=Knack\ Nerd\ Font:h12
+set guifont=Knack\ Nerd\ Font:h13
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -130,6 +132,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_checkers_css_exec = '/usr/local/bin/csslint'
+let g:syntastic_javascript_eslint_exec = '/usr/local/bin/eslint ~/.eslintrc.js'
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = '/Users/seth/.rbenv/shims/rubocop'
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
