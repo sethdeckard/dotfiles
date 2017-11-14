@@ -1,0 +1,23 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "Various configuration files for my development environment (vim, zsh, tmux, etc.). Includes an install script to create symbolic links in `$HOME`. Works on both macOS and Linux.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethdeckard/dotfiles.git"
+  },
+  "author": "Seth Deckard",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/sethdeckard/dotfiles/issues"
+  },
+  "homepage": "https://github.com/sethdeckard/dotfiles#readme",
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-plugin-react": "^7.4.0"
+  }
+}

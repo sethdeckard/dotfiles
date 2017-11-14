@@ -9,6 +9,7 @@ ln -sf ~/.vim/init.vim ~/.vimrc
 ln -sf $PWD/.aprc ~/.aprc
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
+ln -sf $PWD/.eslintrc.js ~/.eslintrc.js
 ln -sf $PWD/.gemrc ~/.gemrc
 ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
