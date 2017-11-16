@@ -22,11 +22,15 @@ Plugin 'tpope/vim-rails'
 Plugin 'fatih/vim-go'
 Plugin 'eraserhd/vim-ios'
 Plugin 'vim-scripts/cocoa.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
 " color schemes
 Plugin 'trusktr/seti.vim'
 Plugin 'altercation/vim-colors-solarized'
 " icons
 Plugin 'ryanoasis/vim-devicons'
+" snippets
+Plugin 'honza/vim-snippets'
 call vundle#end()
 filetype plugin indent on
 
@@ -123,6 +127,18 @@ map <Leader>n :NERDTreeToggle<CR>
 " close NERDTree if only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
   \ && b:NERDTree.isTabTree()) | q | endif
+
+" ycm settings
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+
+" supertab settings
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" utilsnips settings
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " syntastic settings
 set statusline+=%#warningmsg#
