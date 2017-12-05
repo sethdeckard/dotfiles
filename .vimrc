@@ -24,6 +24,8 @@ Plugin 'eraserhd/vim-ios'
 Plugin 'vim-scripts/cocoa.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 " color schemes
 Plugin 'trusktr/seti.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -163,6 +165,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = 'quickfix'
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 " vim-devicons settings
 let g:airline_powerline_fonts = 1
