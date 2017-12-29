@@ -7,9 +7,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " plugins
 Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'rizzatti/dash.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -119,17 +116,6 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_working_path_mode = 'r'
 
-" NERDTree settings
-let NERDTreeShowHidden = 1
-let NERDTreeMouseMode = 3
-" show current file in tree
-map <Leader>r <esc>:NERDTreeFind<cr>
-" \n NERDTree toggle
-map <Leader>n :NERDTreeToggle<CR>
-" close NERDTree if only window left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree")
-  \ && b:NERDTree.isTabTree()) | q | endif
-
 " ycm settings
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -151,7 +137,7 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_checkers_css_exec = '/usr/local/bin/csslint'
-let g:syntastic_javascript_eslint_exec = '/usr/local/bin/eslint ~/.eslintrc.js'
+let g:syntaxtic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = '/Users/seth/.rbenv/shims/rubocop'
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
@@ -191,7 +177,7 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
+autocmd FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
   \javascript,objc autocmd BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
