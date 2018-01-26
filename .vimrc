@@ -164,7 +164,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
-  \javascript,objc autocmd BufWritePre <buffer>
+  \javascript,objc,zsh autocmd BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
