@@ -1,9 +1,16 @@
 # user scripts
 export PATH=$PATH:$HOME/bin
 
+# android
+export PATH=$PATH:/Users/seth/Library/Android/sdk/platform-tools
+export PATH=$PATH:/Users/seth/Library/Android/sdk/tools
+
 # golang paths
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
+
+# jenv
+export PATH="$HOME/.jenv/bin:$PATH"
 
 # homebrew
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -13,6 +20,9 @@ fi
 
 export EDITOR="vim"
 export VISUAL="mvim"
+
+# gpg
+export "GPG_TTY=$(tty)"
 
 # dotfiles source directory
 DOTFILES=$HOME/.dotfiles
