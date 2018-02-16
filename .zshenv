@@ -41,4 +41,4 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs rbenv)
 
 # CocoaPods
-COCOAPODS_DISABLE_STATS=true
+export COCOAPODS_DISABLE_STATS=true
