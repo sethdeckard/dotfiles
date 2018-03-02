@@ -24,6 +24,7 @@ ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
 
 if [ ! -d ~/bin ]; then mkdir ~/bin; fi
+if [ ! -d ~/.vim/swapfiles ]; then mkdir ~/.vim/swapfiles; fi
 ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls

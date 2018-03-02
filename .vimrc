@@ -44,7 +44,7 @@ colorscheme solarized
 set encoding=utf8 " vim-devicons glyphs
 
 set hidden
-set noswapfile
+set directory=~/.vim/swapfiles//
 
 set noerrorbells
 set visualbell
