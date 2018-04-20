@@ -154,6 +154,7 @@ autocmd FileType eruby setlocal spell
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
 au BufNewFile,BufRead *.es6 set filetype=javascript
+au BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
 
 " remove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
