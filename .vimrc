@@ -15,18 +15,20 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'fatih/vim-go'
-Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
+" languages and frameworks
+Plugin 'fatih/vim-go'
+Plugin 'keith/swift.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-rails'
 " color schemes
 Plugin 'trusktr/seti.vim'
 Plugin 'altercation/vim-colors-solarized'
 " icons
 Plugin 'ryanoasis/vim-devicons'
 " snippets
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 call vundle#end()
 filetype plugin indent on
@@ -162,7 +164,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
-  \javascript,objc,zsh autocmd BufWritePre <buffer>
+  \javascript,objc,swift,zsh autocmd BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
