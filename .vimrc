@@ -146,9 +146,9 @@ let g:airline_powerline_fonts = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " spell check by file type
-autocmd FileType Markdown setlocal spell
-autocmd FileType HTML setlocal spell
-autocmd FileType eruby setlocal spell
+au FileType Markdown setlocal spell
+au FileType HTML setlocal spell
+au FileType eruby setlocal spell
 
 " force file type for unknowns
 au BufNewFile,BufRead *.ejs set filetype=html
@@ -164,8 +164,8 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
-  \javascript,objc,swift,zsh autocmd BufWritePre <buffer>
+au FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
+  \javascript,objc,swift,zsh au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
