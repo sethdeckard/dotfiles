@@ -6,5 +6,6 @@ dotenv
 iStats
 mailcatcher
 pry
+rails
 rubocop
 tmuxinator
