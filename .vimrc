@@ -154,7 +154,7 @@ au FileType eruby setlocal spell
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
 au BufNewFile,BufRead *.es6 set filetype=javascript
-au BufNewFile,BufRead Podfile,*.podspec set filetype=ruby
+au BufNewFile,BufRead Brewfile,Podfile,*.podspec set filetype=ruby
 
 " remove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
@@ -164,7 +164,7 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-au FileType c,cpp,css,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
+au FileType c,cpp,css,dockerfile,ruby,eruby,markdown,python,sh,vim,javascript.jsx,
   \javascript,objc,swift,zsh au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
