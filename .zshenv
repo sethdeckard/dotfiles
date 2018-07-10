@@ -43,5 +43,5 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs rbenv)
 # CocoaPods
 export COCOAPODS_DISABLE_STATS=true
 
-# Required for YCM build
-# export PYTHON_CONFIGURE_OPTS="--enable-framework"
+# pyenv: install pythons as frameworks
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
