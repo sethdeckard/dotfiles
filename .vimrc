@@ -23,6 +23,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
 " languages and frameworks
+Plugin 'jeaye/color_coded'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
 Plugin 'mxw/vim-jsx'
