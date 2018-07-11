@@ -22,6 +22,7 @@ Plugin 'vim-scripts/ShowTrailingWhitespace'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
+Plugin 'rdnetto/YCM-Generator'
 " languages and frameworks
 Plugin 'jeaye/color_coded'
 Plugin 'fatih/vim-go'
