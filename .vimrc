@@ -10,19 +10,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-" plugins
-Plugin 'w0rp/ale'
-Plugin 'rizzatti/dash.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/ShowTrailingWhitespace'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
+" completion
 Plugin 'ervandew/supertab'
 Plugin 'rdnetto/YCM-Generator'
+Plugin 'Valloric/YouCompleteMe'
+" git / scm
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+" linting
+Plugin 'w0rp/ale'
+" navigation
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rizzatti/dash.vim'
+Plugin 'ludovicchabant/vim-gutentags'
+" visual status
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/ShowTrailingWhitespace'
 " languages and frameworks
 Plugin 'jeaye/color_coded'
 Plugin 'fatih/vim-go'
