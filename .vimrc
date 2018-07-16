@@ -184,7 +184,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,dockerfile,eruby,javascript,javascript.jsx,markdown,
-  \objc,python,ruby,sh,swift,vim,zsh,yaml au BufWritePre <buffer>
+  \objc,objcpp,python,ruby,sh,swift,vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
