@@ -68,9 +68,16 @@ set autoindent
 set smartindent
 set smarttab
 set expandtab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+
+" default indentation
+set shiftwidth=2 " sw
+set tabstop=2 " ts
+set softtabstop=2 " sts
+
+" language-specific indentation
+autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab
 
 set wrap
 set linebreak
@@ -183,8 +190,9 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-au FileType bash,c,cpp,css,dockerfile,eruby,javascript,javascript.jsx,markdown,
-  \objc,objcpp,python,ruby,sh,swift,vim,zsh,yaml au BufWritePre <buffer>
+au FileType bash,c,cpp,css,dockerfile,eruby,java,javascript,
+  \javascript.jsx,markdown,objc,objcpp,python,ruby,sh,swift,
+  \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
