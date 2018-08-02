@@ -76,6 +76,7 @@ set tabstop=2 " ts
 set softtabstop=2 " sts
 
 " language-specific indentation
+autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab
@@ -192,7 +193,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,dockerfile,eruby,java,javascript,
-  \javascript.jsx,kt,markdown,objc,objcpp,python,ruby,sh,swift,
+  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,swift,
   \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
