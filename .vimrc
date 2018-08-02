@@ -29,6 +29,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 " languages and frameworks
 Plugin 'jeaye/color_coded'
+Plugin 'udalov/kotlin-vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
 Plugin 'mxw/vim-jsx'
@@ -191,7 +192,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,dockerfile,eruby,java,javascript,
-  \javascript.jsx,markdown,objc,objcpp,python,ruby,sh,swift,
+  \javascript.jsx,kt,markdown,objc,objcpp,python,ruby,sh,swift,
   \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
