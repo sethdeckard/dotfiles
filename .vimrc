@@ -71,6 +71,7 @@ set tabstop=2 " ts
 set softtabstop=2 " sts
 
 " language-specific indentation
+autocmd Filetype cpp setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab
 autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab
