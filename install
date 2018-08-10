@@ -21,6 +21,7 @@ ln -sf $PWD/.ssh_config ~/.ssh/config
 ln -sf $PWD/.tern-config ~/.tern-config
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc
+ln -sf $PWD/.xvimrc ~/.xvimrc
 ln -sf $PWD/.ycm_extra_conf.py ~/.ycm_extra_conf.py
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc

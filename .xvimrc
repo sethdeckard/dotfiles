@@ -1,0 +1,84 @@
+set nocompatible
+filetype off
+
+" basic editor config
+syntax enable
+
+set encoding=utf8 " vim-devicons glyphs
+
+set hidden
+set directory=~/.vim/swapfiles//
+
+set noerrorbells
+set visualbell
+set t_vb=
+
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+
+" default indentation
+set shiftwidth=2 " sw
+set tabstop=2 " ts
+set softtabstop=2 " sts
+
+" language-specific indentation
+autocmd Filetype cpp setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab
+autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab
+
+set wrap
+set linebreak
+set colorcolumn=80
+
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
+
+set ruler
+set number
+set showcmd
+set noshowmode
+set autoread
+
+set backspace=2
+
+set cul
+set gcr=a:blinkon0
+
+" show airline on start
+set laststatus=2
+
+" avoid wearing out shift key
+nore ; :
+nore , ;
+
+" easier move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+nnoremap Y y$
+
+" spell check by file type
+au FileType Markdown setlocal spell
+au FileType HTML setlocal spell
+au FileType eruby setlocal spell
+
+" force file type for unknowns
+au BufNewFile,BufRead Brewfile,Podfile,*.podspec set filetype=ruby
+
+" remove trailing whitespace
+fun! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
+endfun
+
+au FileType bash,c,cpp,css,dockerfile,eruby,java,javascript,
+  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,swift,
+  \vim,zsh,yaml au BufWritePre <buffer>
+  \ :call <SID>StripTrailingWhitespaces()
