@@ -82,6 +82,7 @@ brew "pinentry"
 brew "gnupg", link: false
 brew "gnuplot", args: ["with-aquaterm"]
 brew "go"
+brew "go-jira"
 brew "pkg-config"
 brew "gpg-agent"
 brew "gpp"
@@ -118,12 +119,13 @@ brew "media-info"
 brew "memcached", restart_service: true
 brew "metis"
 brew "mitmproxy"
-brew "mono", args: ["without-fsharp"]
+brew "mkcert"
 brew "mpv", args: ["with-libcaca"]
 brew "msgpack"
 brew "unibilium"
 brew "neovim"
 brew "node"
+brew "nss"
 brew "plotutils"
 brew "pstoedit"
 brew "qhull"
@@ -188,7 +190,6 @@ cask "lmms"
 cask "macdown"
 cask "macpass"
 cask "ngrok"
-cask "skype-for-business"
 cask "steam"
 cask "tcl"
 cask "transmission"
@@ -211,6 +212,5 @@ mas "Pages", id: 409201541
 mas "RadarScope", id: 432027450
 mas "Slack", id: 803453959
 mas "The Unarchiver", id: 425424353
-mas "TweetDeck", id: 485812721
 mas "Twitter", id: 409789998
 mas "Xcode", id: 497799835
