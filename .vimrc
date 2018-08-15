@@ -188,7 +188,7 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 
-au FileType bash,c,cpp,css,dockerfile,eruby,java,javascript,
+au FileType bash,c,cpp,css,diff,dockerfile,eruby,java,javascript,
   \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,swift,
   \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
