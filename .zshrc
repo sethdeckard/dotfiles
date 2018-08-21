@@ -1,3 +1,9 @@
+## Stuff that must be done before oh-my-zsh.sh
+# Homebrew completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 ## begin oh-my-zsh config
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
