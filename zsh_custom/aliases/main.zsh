@@ -1,4 +1,4 @@
-# convox 
+# convox
 alias cx=convox
 alias cxl='convox logs'
 alias cxr='convox rack'
@@ -6,6 +6,10 @@ alias cxr='convox rack'
 # macOS specific
 alias app_loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
 alias brewsu=brew_safe_upgrade
+
+# misc
+alias more=less
+alias pwdgen='openssl rand -base64 32'
 
 # tmux
 alias mux='tmuxinator'
