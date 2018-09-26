@@ -189,7 +189,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,diff,dockerfile,eruby,java,javascript,
-  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,swift,
+  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,scss,swift,
   \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
