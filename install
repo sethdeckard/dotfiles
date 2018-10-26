@@ -14,6 +14,7 @@ ln -sf $PWD/.gemrc ~/.gemrc
 ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
 ln -sfh $PWD/.git_template ~/.git_template
+ln -sf $PWD/.ignore ~/.ignore
 ln -sf $PWD/.irbrc ~/.irbrc
 ln -sfh $PWD/powerline ~/.config/powerline
 ln -sf $PWD/.pryrc ~/.pryrc

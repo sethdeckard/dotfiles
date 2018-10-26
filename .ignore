@@ -1,0 +1,9 @@
+*.exe
+*.so
+*.dll
+*.class
+*.png
+*.jpg
+*.jpeg
+*.xcconfig
+*.xib
