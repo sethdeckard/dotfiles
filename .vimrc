@@ -23,7 +23,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 " languages and frameworks
-Plugin 'jeaye/color_coded'
+" Plugin 'jeaye/color_coded'
 Plugin 'udalov/kotlin-vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
@@ -111,6 +111,9 @@ nnoremap <C-l> <C-w>l
 
 nnoremap Y y$
 
+" quick list of registers
+nnoremap <silent> "" :registers "0123456789abcdefghijklmnopqrstuvwxyz*+.<CR>
+
 " mvim settings
 if has("gui_running")
   set guioptions-=T
@@ -130,11 +133,11 @@ let g:ale_lint_on_text_changed = 'normal'
 
 " ctrlp settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+"  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|xib|xcconfig)$',
+"\}
+let g:ctrlp_user_command = ['ag %s --path-to-ignore ~/.ignore -l --nocolor --hidden -g ""']
 let g:ctrlp_working_path_mode = 'r'
 
 " ycm settings
@@ -144,7 +147,9 @@ let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'gitcommit': 1,
+      \}
 " supertab settings
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
@@ -189,7 +194,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,diff,dockerfile,eruby,java,javascript,
-  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,scss,swift,
+  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,scss,sql,swift,
   \vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
