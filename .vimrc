@@ -23,7 +23,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/ShowTrailingWhitespace'
 " languages and frameworks
-" Plugin 'jeaye/color_coded'
+" color_coded does not work when vim is built with LuaJIT support:
+Plugin 'jeaye/color_coded'
 Plugin 'udalov/kotlin-vim'
 Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
@@ -70,16 +71,17 @@ set shiftwidth=2 " sw
 set tabstop=2 " ts
 set softtabstop=2 " sts
 
-" language-specific
-autocmd Filetype cpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
-autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
-autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
-autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
-autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
-
+" line length stuff
 set wrap
 set linebreak
 set colorcolumn=80
+
+" language-specific
+autocmd Filetype cpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
+autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=100
+autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
+autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
+autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
 
 set scrolloff=8
 set sidescrolloff=15
@@ -147,8 +149,11 @@ let g:ycm_extra_conf_vim_data = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" TODO: java/kotlin completion generates annoying elcipse artifacts (.project, etc)
 let g:ycm_filetype_specific_completion_to_disable = {
       \ 'gitcommit': 1,
+      \ 'java': 1,
+      \ 'kotlin': 1,
       \}
 " supertab settings
 let g:SuperTabDefaultCompletionType = '<C-n>'
