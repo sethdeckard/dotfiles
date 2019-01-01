@@ -135,12 +135,12 @@ let g:ale_lint_on_text_changed = 'normal'
 
 " ctrlp settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-" let g:ctrlp_custom_ignore = {
-"  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-"  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|xib|xcconfig)$',
-"\}
-let g:ctrlp_user_command = ['ag %s --path-to-ignore ~/.ignore -l --nocolor --hidden -g ""']
-let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|xib|xcconfig)$',
+\}
+" let g:ctrlp_user_command = ['ag %s --path-to-ignore ~/.ignore -l --nocolor --hidden -g ""']
+" let g:ctrlp_working_path_mode = 'r'
 
 " ycm settings
 let g:ycm_confirm_extra_conf = 0
@@ -199,8 +199,8 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au FileType bash,c,cpp,css,diff,dockerfile,eruby,java,javascript,
-  \javascript.jsx,kotlin,markdown,objc,objcpp,python,ruby,sh,scss,sql,swift,
-  \vim,zsh,yaml au BufWritePre <buffer>
+  \javascript.jsx,kotlin,markdown,objc,objcpp,php,python,ruby,sh,scss,sql,
+  \swift,vim,zsh,yaml au BufWritePre <buffer>
   \ :call <SID>StripTrailingWhitespaces()
 
 " rails projections
