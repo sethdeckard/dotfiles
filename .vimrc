@@ -78,6 +78,7 @@ set colorcolumn=80
 
 " language-specific
 autocmd Filetype cpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
+autocmd Filetype groovy setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=100
 autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=100
 autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
 autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
