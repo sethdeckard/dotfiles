@@ -30,6 +30,7 @@ Plugin 'fatih/vim-go'
 Plugin 'keith/swift.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'rhysd/vim-crystal'
 Plugin 'tpope/vim-rails'
 " color schemes
 Plugin 'trusktr/seti.vim'
@@ -136,12 +137,12 @@ let g:ale_lint_on_text_changed = 'normal'
 
 " ctrlp settings
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|xib|xcconfig)$',
-\}
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+"  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg|xib|xcconfig)$',
+"\}
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 " let g:ctrlp_user_command = ['ag %s --path-to-ignore ~/.ignore -l --nocolor --hidden -g ""']
-" let g:ctrlp_working_path_mode = 'r'
 
 " ycm settings
 let g:ycm_confirm_extra_conf = 0

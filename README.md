@@ -35,12 +35,19 @@ $ brew cask install font-hack-nerd-font
 2. GUI Vim requires Knack Regular Nerd Font Complete font.
 3. [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) for code completion. (not required when using minimal configuration: .vimrc_min)
 
-Manual install/build steps for plugins:
+#### Manual install/build steps for plugins:
 
-YouCompleteMe:
-For macOS use Homebrew python when running YCM install script (MacVim and YCM must be built with same python), ex: `/usr/local/bin/python3 ./install.py`
+##### YouCompleteMe:
 
-color_coded:
+For macOS use Homebrew python when running YCM install script (MacVim and YCM must be built with same python).
+
+```bash
+cd ~/.vim/bundle/YouCompleteMe/
+/usr/local/bin/python3 ./install.py
+```
+
+##### color_coded:
+
 ```bash
 cd ~/.vim/bundle/color_coded
 rm -f CMakeCache.txt
