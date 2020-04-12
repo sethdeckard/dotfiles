@@ -32,5 +32,6 @@ if [ ! -d ~/.vim/swapfiles ]; then mkdir ~/.vim/swapfiles; fi
 ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
+ln -sf $PWD/bin/delete_branches ~/bin/delete_branches
 
 if which rbenv > /dev/null; then ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems; fi

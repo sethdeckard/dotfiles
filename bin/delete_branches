@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+while read branch; do
+  git branch -D $branch
+done <branches.txt
