@@ -3,6 +3,11 @@ alias cx=convox
 alias cxl='convox logs'
 alias cxr='convox rack'
 
+# k8s
+alias kb=kubectl
+alias kbaa='kubectl apply -f ./'
+alias kbgs='kubectl get service'
+
 # macOS specific
 alias app_loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
 alias brewsu=brew_safe_upgrade
