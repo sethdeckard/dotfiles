@@ -18,6 +18,7 @@ ln -sf $PWD/.ignore ~/.ignore
 ln -sf $PWD/.irbrc ~/.irbrc
 ln -sfh $PWD/powerline ~/.config/powerline
 ln -sf $PWD/.pryrc ~/.pryrc
+ln -sf $PWD/.railsrc ~/.railsrc
 ln -sf $PWD/.ssh_config ~/.ssh/config
 ln -sf $PWD/.tern-config ~/.tern-config
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
