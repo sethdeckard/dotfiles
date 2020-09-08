@@ -10,7 +10,9 @@
 [includeIf "gitdir:~/projects/acme/"]
   path = ~/projects/acme/.gitconfig
 [diff]
-  tool = diffmerge
+  tool = vimdiff
+  mnemonicPrefix = true
+  submodule = diff
 [difftool "diffmerge"]
   cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
