@@ -10,7 +10,6 @@ alias kbgs='kubectl get service'
 
 # macOS specific
 alias app_loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
-alias brewsu=brew_safe_upgrade
 
 # misc
 alias more=less
