@@ -1,50 +1,52 @@
 set nocompatible
-filetype off
 
-" Vundle settings
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+" install vim-plug if missing
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+" vim help for vim-plug
+Plug 'junegunn/vim-plug'
 " completion
-Plugin 'ervandew/supertab'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'Valloric/YouCompleteMe'
+Plug 'ervandew/supertab'
+Plug 'rdnetto/YCM-Generator'
+Plug 'Valloric/YouCompleteMe'
 " git / scm
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " linting
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 " navigation
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'ludovicchabant/vim-gutentags'
 " visual status
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/ShowTrailingWhitespace'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/ShowTrailingWhitespace'
 " languages and frameworks
 " color_coded does not work when vim is built with LuaJIT support:
-Plugin 'jeaye/color_coded'
-Plugin 'udalov/kotlin-vim'
-Plugin 'fatih/vim-go'
-Plugin 'keith/swift.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rhysd/vim-crystal'
-Plugin 'tpope/vim-rails'
+Plug 'jeaye/color_coded'
+Plug 'udalov/kotlin-vim'
+Plug 'fatih/vim-go'
+Plug 'keith/swift.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'rhysd/vim-crystal'
+Plug 'tpope/vim-rails'
 " color schemes
-Plugin 'trusktr/seti.vim'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'trusktr/seti.vim'
+Plug 'altercation/vim-colors-solarized'
 " icons
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 " snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-call vundle#end()
-filetype plugin indent on
-
-" basic editor config
-syntax enable
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+call plug#end()
 
 " theme
 set background=dark
