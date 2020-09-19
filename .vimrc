@@ -84,6 +84,7 @@ autocmd Filetype kotlin setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=100
 autocmd Filetype java setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
 autocmd Filetype objc setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
 autocmd Filetype objcpp setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
+autocmd Filetype swift setlocal ts=4 sw=4 sts=4 expandtab colorcolumn=120
 
 set scrolloff=8
 set sidescrolloff=15
