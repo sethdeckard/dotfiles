@@ -9,4 +9,5 @@ middleman
 pry
 rails
 rubocop
+solargraph
 tmuxinator
