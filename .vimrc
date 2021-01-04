@@ -265,7 +265,7 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-set guifont=Knack\ Nerd\ Font:h13
+set guifont=Hack\ Nerd\ Font:h13
 
 " airline settings
 let g:airline#extensions#ale#enabled = 1
