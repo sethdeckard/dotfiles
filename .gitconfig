@@ -23,6 +23,7 @@
 [push]
   default = simple
 [init]
+  defaultBranch = master
   templatedir = ~/.git_template
 [commit]
   gpgsign = true
