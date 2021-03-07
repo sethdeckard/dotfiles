@@ -34,9 +34,23 @@ ln -sf $PWD/.zshrc ~/.zshrc
 
 if [ ! -d ~/bin ]; then mkdir ~/bin; fi
 if [ ! -d ~/.vim/swapfiles ]; then mkdir ~/.vim/swapfiles; fi
-ln -sf $PWD/bin/brew_safe_upgrade ~/bin/brew_safe_upgrade
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
 ln -sf $PWD/bin/delete_branches ~/bin/delete_branches
 
-if which rbenv > /dev/null; then ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems; fi
+if ! command -v rbenv &> /dev/null
+then
+  echo "rbenv not installed, skipping default-gems."
+else
+  ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems
+fi
+
+if ! command -v brew &> /dev/null
+then
+  echo "homebrew not installed, skipping font installation."
+else
+  brew update && \
+    brew tap homebrew/cask-fonts && \
+    brew install font-hack && \
+    brew install font-hack-nerd-font
+fi
