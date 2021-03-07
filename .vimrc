@@ -13,6 +13,29 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-plug'
 " completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" coc extensions
+Plug 'weirongxu/coc-calc'
+Plug 'clangd/coc-clangd'
+Plug 'voldikss/coc-cmake'
+Plug 'neoclide/coc-css'
+Plug 'neoclide/coc-eslint'
+Plug 'josa42/coc-go'
+Plug 'neoclide/coc-html'
+Plug 'pappasam/coc-jedi'
+Plug 'neoclide/coc-json'
+Plug 'fannheyward/coc-markdownlint'
+Plug 'neoclide/coc-prettier'
+Plug 'josa42/coc-sh'
+Plug 'neoclide/coc-solargraph'
+Plug 'klaaspieter/coc-sourcekit'
+Plug 'fannheyward/coc-sql'
+Plug 'iamcco/coc-spell-checker'
+Plug 'kkiyama117/coc-toml'
+Plug 'fannheyward/coc-texlab'
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-xml'
+Plug 'iamcco/coc-vimlsp'
+Plug 'neoclide/coc-yaml'
 " git / scm
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -26,7 +49,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/ShowTrailingWhitespace'
-" languages and frameworks
+" frameworks
 Plug 'tpope/vim-rails'
 " color schemes
 Plug 'altercation/vim-colors-solarized'
@@ -34,6 +57,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'ryanoasis/vim-devicons'
 " snippets
 Plug 'honza/vim-snippets'
+" syntax
+Plug 'cespare/vim-toml'
 call plug#end()
 
 " theme
