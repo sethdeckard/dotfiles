@@ -339,7 +339,7 @@ au FileType eruby setlocal spell
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.jst.ejs set filetype=html
 au BufNewFile,BufRead *.es6 set filetype=javascript
-au BufNewFile,BufRead Brewfile,Dangerfile,Podfile,*.podspec set filetype=ruby
+au BufNewFile,BufRead Brewfile,Dangerfile,*.danger,Podfile,*.podspec set filetype=ruby
 
 " remove trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
