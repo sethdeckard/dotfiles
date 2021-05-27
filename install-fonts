@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -x
+set -e
+
+if ! command -v brew &> /dev/null
+then
+  echo "homebrew not installed, skipping font installation."
+else
+  brew update && \
+    brew tap homebrew/cask-fonts && \
+    brew install font-hack && \
+    brew install font-hack-nerd-font
+fi
