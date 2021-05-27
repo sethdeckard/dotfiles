@@ -9,7 +9,8 @@ alias kbaa='kubectl apply -f ./'
 alias kbgs='kubectl get service'
 
 # macOS specific
-alias app_loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
+alias app-loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
+alias update-macos='sudo softwareupdate --install --all --restart --force --agree-to-license'
 
 # misc
 alias more=less
