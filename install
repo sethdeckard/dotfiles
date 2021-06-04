@@ -29,6 +29,7 @@ ln -sf $PWD/.tigrc ~/.tigrc
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc
 ln -sf $PWD/.xvimrc ~/.xvimrc
+ln -sf $PWD/.zprofile ~/.zprofile
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
 

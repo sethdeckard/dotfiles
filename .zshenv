@@ -45,6 +45,8 @@ export COCOAPODS_DISABLE_STATS=true
 
 # pyenv: install pythons as frameworks
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Fastlane
 export FASTLANE_OPT_OUT_USAGE=true
