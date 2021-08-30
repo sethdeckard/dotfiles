@@ -15,6 +15,7 @@ export PATH="$HOME/.jenv/bin:$PATH"
 # homebrew
 if [[ "$OSTYPE" == darwin* ]]; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+  export PATH=/opt/homebrew/bin:$PATH
   export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
 fi
 
