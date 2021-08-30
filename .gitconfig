@@ -4,11 +4,15 @@
 [user]
   name = Seth Deckard
   email = seth@deckard.me
-  signingkey = 9163ADCB946CFB2A
-[includeIf "gitdir:~/Projects/acme/"]
-  path = ~/Projects/acme/.gitconfig
+[include]
+  # supports signingkey and other per-machine config
+  path = ~/.gitconfig.inc
 [includeIf "gitdir:~/projects/acme/"]
+  # work-specific settings
   path = ~/projects/acme/.gitconfig
+[includeIf "gitdir:~/work/"]
+  # work-specific settings (new approach)
+  path = ~/work/.gitconfig
 [diff]
   tool = vimdiff
   mnemonicPrefix = true
