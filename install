@@ -29,8 +29,8 @@ ln -sfh ~/.vim ~/.config/nvim
 ln -sf ~/.vim/init.vim ~/.vimrc
 
 ln -sf $PWD/.aprc ~/.aprc
-
 set +x
+
 if [ ! -d ~/.bundle ]; then
   echo -e "${blue}Creating ~/.bundle directory...${reset}"
   mkdir ~/.bundle
@@ -60,14 +60,13 @@ ln -sf $PWD/.xvimrc ~/.xvimrc
 ln -sf $PWD/.zprofile ~/.zprofile
 ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
-
 set +x
+
 if [ ! -d ~/.vim/swapfiles ]; then
   echo -e "${blue}Creating ~/.vim/swapfiles directory...${reset}"
   mkdir ~/.vim/swapfiles
 fi
 
-set +x
 if [ ! -d ~/bin ]; then
   echo -e "${blue}Creating ~/bin directory...${reset}"
   mkdir ~/bin
@@ -77,14 +76,16 @@ set -x
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
 ln -sf $PWD/bin/delete_branches ~/bin/delete_branches
-
 set +x
+
 if ! command -v rbenv &> /dev/null
 then
   echo -e "${bold}${yellow}rbenv not installed, skipping default-gems.${reset}"
 else
   echo -e "Assigning default-gems for rbenv."
-  ln -sf $PWD/default-gems $(echo $HOME/.rbenv)/default-gems
+  set -x
+  ln -sf $PWD/default-gems "$HOME/.rbenv/default-gems"
+  set +x
 fi
 
 echo -e "${green}Done! Next steps:${reset}"
