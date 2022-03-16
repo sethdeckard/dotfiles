@@ -1,3 +1,8 @@
+# homebrew
+if [[ "$OSTYPE" == darwin* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
