@@ -52,8 +52,6 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(bundler git rails rake ruby zsh-autosuggestions zsh-syntax-highlighting docker-compose)
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 source $ZSH/oh-my-zsh.sh
 ## end oh-my-zsh config
 
