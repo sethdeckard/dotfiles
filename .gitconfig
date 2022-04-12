@@ -12,7 +12,7 @@
   path = ~/projects/acme/.gitconfig
 [includeIf "gitdir:~/work/"]
   # work-specific settings (new approach)
-  path = ~/work/.gitconfig
+  path = ~/work/.gitconfig.inc
 [diff]
   tool = vimdiff
   mnemonicPrefix = true
