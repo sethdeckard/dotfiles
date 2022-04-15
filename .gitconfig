@@ -10,6 +10,8 @@
 [includeIf "gitdir:~/work/"]
   # work-specific settings (override email, etc.)
   path = ~/work/.gitconfig.inc
+[advice]
+  skippedCherryPicks = false
 [diff]
   tool = vimdiff
   mnemonicPrefix = true
