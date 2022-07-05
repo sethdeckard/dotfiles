@@ -19,24 +19,24 @@ Install [Homebrew](https://brew.sh) (optional):
 
 #### Homebrew support
 
-- Modifies `PATH`
+- Adds completions for Zsh if brew is installed.
 - Assigns `HOMEBREW_GITHUB_API_TOKEN` from a text file in `~/.config/homebrew/.api_token` (need better secret management).
-- Installs required fonts. (script: `install-fonts`)
+- Includes a helper script to install required fonts via Homebrew. (`install-fonts`)
 
 ### rbenv
 
 [rbenv](https://github.com/rbenv/rbenv) is supported, if installed.
 
-#### Default Gems
+#### Default Ruby Gems
 
 ```
 git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
 ```
 
-### zsh
+### Zsh
 
 - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) for plugin/configuration management.
-- A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font. (script: `install-fonts`)
+- A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font. (helper script: `install-fonts`)
 
 ## tmux
 
@@ -46,7 +46,8 @@ git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/
 ## Vim
 
 - Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug).
-- GUI Vim requires the font `Hack Nerd Font`. (script: `install-fonts`)
+- GUI Vim requires the font `Hack Nerd Font`. (helper script: `install-fonts`)
+- [Universal Ctags](https://github.com/universal-ctags/ctags) is required for [Gutentags](https://github.com/ludovicchabant/vim-gutentags).
 
 ## Assumptions
 
