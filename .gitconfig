@@ -27,6 +27,7 @@
   ff = only
 [push]
   default = simple
+  autoSetupRemote = true
 [init]
   defaultBranch = main
   templatedir = ~/.git_template
