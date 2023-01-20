@@ -52,6 +52,7 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(asdf bundler git rails rake ruby zsh-autosuggestions zsh-syntax-highlighting docker-compose)
 
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 ## end oh-my-zsh config
 
