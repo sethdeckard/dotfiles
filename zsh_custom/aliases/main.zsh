@@ -3,6 +3,11 @@ alias cx=convox
 alias cxl='convox logs'
 alias cxr='convox rack'
 
+# git
+# relying on omzsh plugin for most of of these and overriding or extending here
+# note: gitconfig includes some under git command (or just `g`, ex: `g br`).
+alias gswd='git switch --detach'
+
 # k8s
 alias kb=kubectl
 alias kbaa='kubectl apply -f ./'
@@ -24,4 +29,4 @@ alias txw='tmux list-windows'
 
 # vim
 alias vi=vim
-alias vimm="vim -u $DOTFILES/.vimrc_min"
+alias vimm="vim -u $DOTFILES/.vimrc_min" # vim with minimal customization
