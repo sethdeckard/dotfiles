@@ -61,6 +61,13 @@ Plug 'honza/vim-snippets'
 Plug 'cespare/vim-toml'
 call plug#end()
 
+" Enable Copilot if running NeoVim, disable otherwise
+if has('nvim')
+    autocmd VimEnter * if exists(':Copilot') | Copilot enable | endif
+else
+    autocmd VimEnter * if exists(':Copilot') | Copilot disable | endif
+endif
+
 " theme
 set background=dark
 let g:solarized_visibility = 'high'
