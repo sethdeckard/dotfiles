@@ -6,6 +6,7 @@ alias cxr='convox rack'
 # git
 # relying on omzsh plugin for most of of these and overriding or extending here
 # note: gitconfig includes some under git command (or just `g`, ex: `g br`).
+alias gbm='git branch -mv'
 alias gswd='git switch --detach'
 
 # k8s
