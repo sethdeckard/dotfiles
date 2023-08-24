@@ -88,6 +88,17 @@ else
   set +x
 fi
 
+# Xcode custom editor theme
+xcode_theme_path=~/Library/Developer/Xcode/UserData/FontAndColorThemes/
+if [ -d $xcode_theme_path ]; then
+  echo -e "${blue}Installing custom Xcode theme...${reset}"
+  set -x
+  cp Solarized-Dark-Hacked.xccolortheme $xcode_theme_path
+  set +x
+else
+  echo -e "${bold}${yellow}Xcode not installed, skipping theme.${reset}"
+fi
+
 echo -e "${green}Done! Next steps:${reset}"
 echo -e "- Install a nerd font and configure terminal to use it, see ${red}install-fonts${reset}."
 echo -e "- Add a .gitconfig in ~/work to override email and signing key (optional)."
