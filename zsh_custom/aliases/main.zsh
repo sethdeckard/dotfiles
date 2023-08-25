@@ -9,6 +9,9 @@ alias cxr='convox rack'
 alias gbm='git branch -mv'
 alias gswd='git switch --detach'
 
+# GitHuh (cli)
+alias ghprcw='gh pr create --web'
+
 # k8s
 alias kb=kubectl
 alias kbaa='kubectl apply -f ./'
