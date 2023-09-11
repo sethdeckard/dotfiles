@@ -8,6 +8,7 @@ alias cxr='convox rack'
 # note: gitconfig includes some under git command (or just `g`, ex: `g br`).
 alias gbm='git branch -mv'
 alias gcdf='git clean -d -f'
+alias gsur='git submodule update --recursive'
 alias gswd='git switch --detach'
 
 # GitHuh (cli)
