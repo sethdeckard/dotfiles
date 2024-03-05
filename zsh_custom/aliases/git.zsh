@@ -9,5 +9,8 @@ alias gsur='git submodule update --recursive'
 alias gswd='git switch --detach'
 alias gtma='git tag -m -a'
 
+# remove undesirable aliases and functions set by omz
+unset -f ggf
+
 # GitHuh (cli)
 alias ghprcw='gh pr create --web'
