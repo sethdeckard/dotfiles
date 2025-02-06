@@ -52,7 +52,7 @@ Plug 'vim-scripts/ShowTrailingWhitespace'
 " frameworks
 Plug 'tpope/vim-rails'
 " color schemes
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 " icons
 Plug 'ryanoasis/vim-devicons'
 " snippets
@@ -71,9 +71,8 @@ endif
 " theme
 set background=dark
 let g:solarized_visibility = 'high'
-let g:solarized_contrast = 'high'
-let g:solarized_termtrans = 1
-colorscheme solarized
+colorscheme solarized8 " solarized8_high for high contrast variant
+set termguicolors
 
 set encoding=utf8 " vim-devicons glyphs
 
