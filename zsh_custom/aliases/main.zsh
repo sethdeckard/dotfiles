@@ -25,3 +25,6 @@ alias txw='tmux list-windows'
 # vim
 alias vi=vim
 alias vimm="vim -u $DOTFILES/.vimrc_min" # vim with minimal customization
+
+# xcode
+alias xdd='rm -rf ~/Library/Developer/Xcode/DerivedData && echo "Derived data deleted"'
