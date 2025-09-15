@@ -40,7 +40,7 @@ Plug 'neoclide/coc-yaml'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " navigation
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rizzatti/dash.vim'
