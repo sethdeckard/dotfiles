@@ -37,6 +37,7 @@ if [ ! -d ~/.bundle ]; then
 fi
 
 set -x
+ln -sf $PWD/.aerospace.toml ~/.aerospace.toml
 ln -sf $PWD/bundle_config ~/.bundle/config
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
