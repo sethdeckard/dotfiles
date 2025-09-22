@@ -24,9 +24,8 @@ if [ ! -d ~/.config ]; then
 fi
 
 set -x
-# use ~/.vim and ~/.vimrc with neovim
+# use ~/.vim with neovim (.vimrc is sourced via init.vim)
 ln -sfh ~/.vim ~/.config/nvim
-ln -sf ~/.vim/init.vim ~/.vimrc
 
 ln -sf $PWD/.aprc ~/.aprc
 set +x
@@ -48,6 +47,7 @@ ln -sf $PWD/.gitconfig.inc ~/.gitconfig.inc
 ln -sf $PWD/.gitignore_global ~/.gitignore_global
 ln -sfh $PWD/.git_template ~/.git_template
 ln -sf $PWD/.ignore ~/.ignore
+ln -sf $PWD/init.vim ~/.vim/init.vim
 ln -sf $PWD/.irbrc ~/.irbrc
 ln -sfh $PWD/powerline ~/.config/powerline
 ln -sf $PWD/.pryrc ~/.pryrc
