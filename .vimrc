@@ -12,6 +12,9 @@ call plug#begin('~/.vim/plugged')
 " vim help for vim-plug
 Plug 'junegunn/vim-plug'
 " completion
+if has('nvim')
+  Plug 'zbirenbaum/copilot.lua'
+endif
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc extensions
 Plug 'weirongxu/coc-calc'
@@ -60,13 +63,6 @@ Plug 'honza/vim-snippets'
 " syntax
 Plug 'cespare/vim-toml'
 call plug#end()
-
-" Enable Copilot if running NeoVim, disable otherwise
-if has('nvim')
-    autocmd VimEnter * if exists(':Copilot') | Copilot enable | endif
-else
-    autocmd VimEnter * if exists(':Copilot') | Copilot disable | endif
-endif
 
 " theme
 set background=dark
