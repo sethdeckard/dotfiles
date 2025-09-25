@@ -50,7 +50,18 @@ ZSH_CUSTOM="$DOTFILES/zsh_custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(asdf bundler git rails rake ruby zsh-autosuggestions zsh-syntax-highlighting docker-compose)
+plugins=(
+  asdf
+  bundler
+  git
+  rails
+  rake
+  ruby
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  docker-compose
+  xcworkspace
+)
 
 DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
