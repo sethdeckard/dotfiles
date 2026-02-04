@@ -49,3 +49,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Fastlane
 export FASTLANE_OPT_OUT_USAGE=true
+
+# Claude Code telemetry opt-out
+export DISABLE_TELEMETRY=1
