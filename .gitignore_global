@@ -98,3 +98,6 @@ xcuserdata/
 
 ## Yarn
 node_modules/
+
+## Claude Code, Codex, etc.
+.claude/
