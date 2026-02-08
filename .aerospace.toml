@@ -185,6 +185,34 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
+[[on-window-detected]]
+  if.app-id = 'com.apple.mail'
+  run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.iCal'
+  run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+  if.app-id = 'com.tinyspeck.slackmacgap'
+  run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.dt.Xcode'
+  run = 'move-node-to-workspace X'
+
+[[on-window-detected]]
+  if.app-id = 'com.intii.CopilotForXcode.ExtensionService'
+  run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+  if.app-id = 'com.intii.CopilotForXcode'
+  run = 'move-node-to-workspace S'
+
+[[on-window-detected]]
+  if.app-id = 'com.googlecode.iterm2'
+  run = 'move-node-to-workspace T'
+
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
