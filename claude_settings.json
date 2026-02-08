@@ -1,0 +1,11 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(docker compose exec -T web bundle exec rspec *)"
+    ]
+  }
+}

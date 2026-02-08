@@ -35,9 +35,15 @@ if [ ! -d ~/.bundle ]; then
   mkdir ~/.bundle
 fi
 
+if [ ! -d ~/.claude]; then
+  echo -e "${blue}Creating ~/.claude directory...${reset}"
+  mkdir ~/.claude
+fi
+
 set -x
 ln -sf $PWD/.aerospace.toml ~/.aerospace.toml
 ln -sf $PWD/bundle_config ~/.bundle/config
+ln -sf $PWD/claude_settings.json ~/.claude/settings.json
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
 ln -sf $PWD/.eslintrc.js ~/.eslintrc.js
