@@ -7,5 +7,8 @@
     "allow": [
       "Bash(docker compose exec -T web bundle exec rspec *)"
     ]
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true
   }
 }
