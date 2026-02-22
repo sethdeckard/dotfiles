@@ -11,5 +11,21 @@
   },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "codex": {
+      "command": "codex",
+      "args": ["mcp-server"],
+      "type": "stdio"
+    },
+    "xcode": {
+      "type": "stdio",
+      "command": "xcrun",
+      "args": [
+        "mcpbridge"
+      ],
+      "env": {}
+    }
   }
 }
+
