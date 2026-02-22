@@ -52,7 +52,7 @@ Temporary Items
 /tmp/
 
 # dotenv
-# .env
+.env
 
 ## Documentation cache and generated files:
 /.yardoc/
@@ -69,6 +69,7 @@ Temporary Items
 Gemfile.lock
 .ruby-version
 .ruby-gemset
+.tool-versions
 
 ### Swift ###
 # Xcode
