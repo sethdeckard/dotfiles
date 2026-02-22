@@ -35,7 +35,7 @@ if [ ! -d ~/.bundle ]; then
   mkdir ~/.bundle
 fi
 
-if [ ! -d ~/.claude]; then
+if [ ! -d ~/.claude ]; then
   echo -e "${blue}Creating ~/.claude directory...${reset}"
   mkdir ~/.claude
 fi
@@ -55,7 +55,6 @@ ln -sfh $PWD/.git_template ~/.git_template
 ln -sf $PWD/.ignore ~/.ignore
 ln -sf $PWD/init.vim ~/.vim/init.vim
 ln -sf $PWD/.irbrc ~/.irbrc
-ln -sfh $PWD/powerline ~/.config/powerline
 ln -sf $PWD/.pryrc ~/.pryrc
 ln -sf $PWD/.railsrc ~/.railsrc
 ln -sf $PWD/.ssh_config ~/.ssh/config
