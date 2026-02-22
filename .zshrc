@@ -74,10 +74,12 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/aliases/git.zsh
 source $ZSH_CUSTOM/aliases/main.zsh
 
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
+# NVM: lazy-load to avoid slow shell startup
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  nvm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; nvm "$@"; }
+  node() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; node "$@"; }
+  npm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npm "$@"; }
+  npx() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npx "$@"; }
+fi
 export PATH="$HOME/.local/bin:$PATH"
