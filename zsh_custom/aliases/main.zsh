@@ -1,3 +1,6 @@
+# use plain bat for upgraded cat
+alias cat="bat --plain"
+
 # convox
 alias cx=convox
 alias cxl='convox logs'
