@@ -17,7 +17,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
 fi
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export VISUAL="mvim"
 
 # gpg

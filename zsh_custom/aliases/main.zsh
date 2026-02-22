@@ -26,7 +26,7 @@ alias txl='tmux list-sessions'
 alias txw='tmux list-windows'
 
 # vim
-alias vi=vim
+alias vi=nvim
 alias vimm="vim -u $DOTFILES/.vimrc_min" # vim with minimal customization
 
 # xcode
