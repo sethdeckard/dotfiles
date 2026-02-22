@@ -1,11 +1,6 @@
 # use plain bat for upgraded cat
 alias cat="bat --plain"
 
-# convox
-alias cx=convox
-alias cxl='convox logs'
-alias cxr='convox rack'
-
 # k8s
 alias kb=kubectl
 alias kbaa='kubectl apply -f ./'

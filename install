@@ -46,7 +46,6 @@ ln -sf $PWD/bundle_config ~/.bundle/config
 ln -sf $PWD/claude_settings.json ~/.claude/settings.json
 ln -sf $PWD/.cobra.yaml ~/.cobra.yaml
 ln -sf $PWD/.ctags ~/.ctags
-ln -sf $PWD/.eslintrc.js ~/.eslintrc.js
 ln -sf $PWD/.gemrc ~/.gemrc
 ln -sf $PWD/.gitconfig ~/.gitconfig
 ln -sf $PWD/.gitconfig.inc ~/.gitconfig.inc
@@ -57,7 +56,6 @@ ln -sf $PWD/.irbrc ~/.irbrc
 ln -sf $PWD/.pryrc ~/.pryrc
 ln -sf $PWD/.railsrc ~/.railsrc
 ln -sf $PWD/.ssh_config ~/.ssh/config
-ln -sf $PWD/.tern-config ~/.tern-config
 ln -sf $PWD/.tigrc ~/.tigrc
 ln -sf $PWD/.tmux.conf ~/.tmux.conf
 ln -sf $PWD/.vimrc ~/.vimrc

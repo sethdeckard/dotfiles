@@ -9,9 +9,6 @@ export PATH=$PATH:/Users/seth/Library/Android/sdk/tools
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
 
-# jenv
-export PATH="$HOME/.jenv/bin:$PATH"
-
 # homebrew GH token
 if [[ "$OSTYPE" == darwin* ]]; then
   export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
