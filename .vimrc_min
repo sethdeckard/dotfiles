@@ -1,24 +1,23 @@
 " use different .vim directory for easy switching
 let &rtp = substitute(&rtp, '\.vim\>', '.vim_min', 'g')
 
-set nocompatible
-filetype off
-
-" Vundle settings
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-" plugins
-Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-scripts/ShowTrailingWhitespace'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-fugitive'
-Plugin 'fatih/vim-go'
-" color schemes
-Plugin 'altercation/vim-colors-solarized'
-call vundle#end()
-filetype plugin indent on
+" vim-plug
+let data_dir = '~/.vim_min/plugged'
+if empty(glob('~/.vim_min/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim_min/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+set rtp+=~/.vim_min
+call plug#begin('~/.vim_min/plugged')
+Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/ShowTrailingWhitespace'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go'
+Plug 'altercation/vim-colors-solarized'
+call plug#end()
 
 " basic editor config
 syntax on
