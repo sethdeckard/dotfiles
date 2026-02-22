@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
-  editor = vim
+  editor = nvim
 [user]
   name = Seth Deckard
   email = seth@deckard.me
@@ -13,16 +13,11 @@
 [advice]
   skippedCherryPicks = false
 [diff]
-  tool = vimdiff
+  tool = nvimdiff
   mnemonicPrefix = true
   submodule = diff
-[difftool "diffmerge"]
-  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
-  tool = diffmerge
-[mergetool "diffmerge"]
-  cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-  trustExitCode = true
+  tool = nvimdiff
 [pull]
   ff = only
 [push]
