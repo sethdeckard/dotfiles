@@ -10,26 +10,34 @@ return {
     "williamboman/mason-lspconfig.nvim",
     dependencies = { "williamboman/mason.nvim" },
     config = function()
+      local has = function(bin)
+        return vim.fn.executable(bin) == 1
+      end
+
+      local ensure_installed = {
+        "clangd",
+        "pyright",
+        "solargraph",
+        "ts_ls",
+        "html",
+        "cssls",
+        "jsonls",
+        "yamlls",
+        "bashls",
+        "sqlls",
+        "marksman",
+        "lua_ls",
+        "texlab",
+        "lemminx",
+      }
+
+      if has("go") then
+        table.insert(ensure_installed, "gopls")
+      end
+
       require("mason-lspconfig").setup({
         automatic_enable = false,
-        ensure_installed = {
-          "clangd",
-          "gopls",
-          "pyright",
-          "solargraph",
-          "ts_ls",
-          "html",
-          "cssls",
-          "jsonls",
-          "yamlls",
-          "bashls",
-          "sqlls",
-          "marksman",
-          "lua_ls",
-          "texlab",
-          "lemminx",
-          "cmake",
-        },
+        ensure_installed = ensure_installed,
       })
     end,
   },
@@ -42,7 +50,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       local on_attach = function(_, bufnr)
@@ -91,18 +98,19 @@ return {
       local servers = {
         "clangd", "gopls", "pyright", "solargraph", "ts_ls",
         "html", "cssls", "jsonls", "yamlls", "bashls",
-        "sqlls", "marksman", "texlab", "lemminx", "cmake",
+        "sqlls", "marksman", "texlab", "lemminx",
       }
 
       for _, server in ipairs(servers) do
-        lspconfig[server].setup({
+        vim.lsp.config(server, {
           capabilities = capabilities,
           on_attach = on_attach,
         })
+        vim.lsp.enable(server)
       end
 
       -- lua_ls: suppress vim global warning
-      lspconfig.lua_ls.setup({
+      vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         on_attach = on_attach,
         settings = {
@@ -112,13 +120,15 @@ return {
           },
         },
       })
+      vim.lsp.enable("lua_ls")
 
       -- sourcekit-lsp: ships with Xcode, not installed via Mason
-      lspconfig.sourcekit.setup({
+      vim.lsp.config("sourcekit", {
         capabilities = capabilities,
         on_attach = on_attach,
         cmd = { "xcrun", "sourcekit-lsp" },
       })
+      vim.lsp.enable("sourcekit")
 
       -- Diagnostics/symbols pickers (replaces CocList)
       vim.keymap.set("n", "<space>a", vim.diagnostic.setloclist, { silent = true })
