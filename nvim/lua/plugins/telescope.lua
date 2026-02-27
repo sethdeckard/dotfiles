@@ -16,6 +16,9 @@ return {
     config = function()
       require("telescope").setup({
         defaults = {
+          preview = {
+            treesitter = { enable = false },
+          },
           file_ignore_patterns = { "%.git/", "node_modules/", "tmp/" },
         },
       })
