@@ -16,6 +16,7 @@ fi
 
 export EDITOR="nvim"
 export VISUAL="mvim"
+export BAT_THEME="Solarized (dark)"
 
 # gpg
 export "GPG_TTY=$(tty)"

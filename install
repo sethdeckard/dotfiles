@@ -107,6 +107,16 @@ else
   echo -e "${bold}${yellow}Xcode not installed, skipping theme.${reset}"
 fi
 
+# Modern CLI tools
+if command -v brew &> /dev/null; then
+  echo -e "${blue}Installing modern CLI tools via Homebrew...${reset}"
+  set -x
+  brew install bat delta eza zoxide
+  set +x
+else
+  echo -e "${bold}${yellow}Homebrew not installed, skipping CLI tools.${reset}"
+fi
+
 echo -e "${green}Done! Next steps:${reset}"
 echo -e "- Install a nerd font and configure terminal to use it, see ${red}install-fonts${reset}."
 echo -e "- Add a .gitconfig in ~/work to override email and signing key (optional)."
