@@ -82,4 +82,10 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
   npm() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npm "$@"; }
   npx() { unset -f nvm node npm npx; . "$NVM_DIR/nvm.sh"; npx "$@"; }
 fi
+
+# zoxide: smarter cd
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 export PATH="$HOME/.local/bin:$PATH"

@@ -1,6 +1,14 @@
 # use plain bat for upgraded cat
 alias cat="bat --plain"
 
+# eza: modern ls replacement
+if command -v eza &>/dev/null; then
+  alias ls='eza'
+  alias ll='eza -l --git --icons'
+  alias la='eza -la --git --icons'
+  alias lt='eza --tree --level=2 --icons'
+fi
+
 # k8s
 alias kb=kubectl
 alias kbaa='kubectl apply -f ./'
