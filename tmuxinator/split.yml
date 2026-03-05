@@ -1,0 +1,10 @@
+name: split
+root: <%= @settings["root"] || Dir.pwd %>
+
+windows:
+  - work:
+      layout: tiled
+      panes:
+<% (@settings["n"] || 4).to_i.times do %>
+        - ""
+<% end %>
