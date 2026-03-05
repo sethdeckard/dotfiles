@@ -26,6 +26,13 @@ fi
 set -x
 # Neovim config (native Lua setup)
 ln -sfh $PWD/nvim ~/.config/nvim
+if [ -e ~/.tmuxinator ] && [ ! -L ~/.tmuxinator ]; then
+  set +x
+  echo -e "${bold}${yellow}~/.tmuxinator exists and is not a symlink; skipping.${reset}"
+  set -x
+else
+  ln -sfh $PWD/tmuxinator ~/.tmuxinator
+fi
 
 ln -sf $PWD/.aprc ~/.aprc
 set +x

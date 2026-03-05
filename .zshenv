@@ -23,6 +23,7 @@ export "GPG_TTY=$(tty)"
 
 # dotfiles source directory
 DOTFILES=$HOME/.dotfiles
+export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator"
 
 # zsh theme settings
 DEFAULT_USER="seth"
