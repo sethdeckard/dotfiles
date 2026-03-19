@@ -88,4 +88,10 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init zsh)"
 fi
 
+# worktrunk shell integration to allow commands to change directories
+if command -v wt >/dev/null 2>&1; then
+  eval "$(command wt config shell init zsh)"
+fi
+
 export PATH="$HOME/.local/bin:$PATH"
+
