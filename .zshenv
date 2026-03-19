@@ -38,6 +38,10 @@ POWERLEVEL9K_VCS_HIDE_TAGS=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs rbenv)
 
+# eza does not use LSCOLORS, has its own
+# below fixes symlink arrows on solarized dark theme
+export EZA_COLORS="lc=bright-cyan:xx=bright-cyan"
+
 # CocoaPods
 export COCOAPODS_DISABLE_STATS=true
 
