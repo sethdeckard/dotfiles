@@ -101,4 +101,6 @@ xcuserdata/
 node_modules/
 
 ## Claude Code, Codex, etc.
-.claude/
+.claude/*
+!.claude/skills/
+!.claude/skills/**
