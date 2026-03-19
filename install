@@ -72,6 +72,11 @@ ln -sf $PWD/.zshenv ~/.zshenv
 ln -sf $PWD/.zshrc ~/.zshrc
 set +x
 
+if [ ! -f ~/.zshenv.local ]; then
+  echo -e "${bold}${yellow}Creating default ~/.zshenv.local...${reset}"
+  echo 'export DISABLE_TELEMETRY=1' > ~/.zshenv.local
+fi
+
 if [ ! -d ~/.vim/swapfiles ]; then
   echo -e "${blue}Creating ~/.vim/swapfiles directory...${reset}"
   mkdir ~/.vim/swapfiles

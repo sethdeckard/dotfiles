@@ -1,2 +1,3 @@
-# machine-specific git config
+# machine-specific config
 .gitconfig.inc
+.zshenv.local
