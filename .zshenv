@@ -9,6 +9,9 @@ export PATH=$PATH:/Users/seth/Library/Android/sdk/tools
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
 
+# rust/cargo
+. "$HOME/.cargo/env"
+
 # homebrew GH token
 if [[ "$OSTYPE" == darwin* ]]; then
   export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.config/homebrew/.api_token)
