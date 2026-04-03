@@ -11,7 +11,8 @@
   },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true,
-    "clangd-lsp@claude-plugins-official": true
+    "clangd-lsp@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true
   },
   "mcpServers": {
     "codex": {
