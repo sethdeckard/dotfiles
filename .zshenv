@@ -10,7 +10,7 @@ export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
 
 # rust/cargo
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
 
 # homebrew GH token
 if [[ "$OSTYPE" == darwin* ]]; then
