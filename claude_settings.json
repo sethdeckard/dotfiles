@@ -9,10 +9,15 @@
       "Bash(xcodebuild *)"
     ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true,
     "clangd-lsp@claude-plugins-official": true,
-    "atlassian@claude-plugins-official": true
+    "atlassian@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
   },
   "mcpServers": {
     "codex": {
@@ -22,9 +27,5 @@
       ],
       "type": "stdio"
     }
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
   }
 }
