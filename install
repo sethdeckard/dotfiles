@@ -11,6 +11,9 @@ reset="\033[0m"
 # submodules are used in zsh_custom for plugins/themes
 git submodule update --init --recursive
 
+# use repo-local git hooks
+git config core.hooksPath .githooks
+
 if [ ! -f .gitconfig.inc ]; then
   echo -e "${bold}${yellow}Creating .gitconfig.inc from template...${reset}"
   cp .gitconfig.inc.template .gitconfig.inc

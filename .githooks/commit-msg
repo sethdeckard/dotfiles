@@ -1,0 +1,70 @@
+#!/bin/sh
+
+set -eu
+
+msg_file=$1
+
+strip_comments() {
+	awk '
+		/^# ------------------------ >8 ------------------------$/ { exit }
+		/^------------------------ >8 ------------------------$/ { exit }
+		/^diff --git / { exit }
+		/^#/ { next }
+		{ print }
+	'
+}
+
+message=$(strip_comments <"$msg_file")
+
+if [ -z "$message" ]; then
+	echo "commit message is empty" >&2
+	exit 1
+fi
+
+subject=$(printf '%s\n' "$message" | sed -n '1p')
+
+case "$subject" in
+	Merge\ *|Revert\ *|fixup!\ *|squash!\ *)
+		exit 0
+		;;
+esac
+
+subject_len=${#subject}
+if [ "$subject_len" -gt 50 ]; then
+	echo "subject is $subject_len characters; keep it at 50 or fewer" >&2
+	exit 1
+fi
+
+case "$subject" in
+	*.)
+		echo "subject must not end with a period" >&2
+		exit 1
+		;;
+esac
+
+first_char=$(printf '%s' "$subject" | cut -c1)
+case "$first_char" in
+	[A-Z])
+		;;
+	*)
+		echo "subject should start with a capital letter" >&2
+		exit 1
+		;;
+esac
+
+line_count=$(printf '%s\n' "$message" | awk 'END { print NR }')
+if [ "$line_count" -gt 1 ]; then
+	second_line=$(printf '%s\n' "$message" | sed -n '2p')
+	if [ -n "$second_line" ]; then
+		echo "separate subject from body with a blank line" >&2
+		exit 1
+	fi
+fi
+
+printf '%s\n' "$message" | awk '
+	NR <= 2 { next }
+	length($0) > 72 {
+		printf("body line %d is %d characters; wrap at 72\n", NR, length($0)) > "/dev/stderr"
+		exit 1
+	}
+'
