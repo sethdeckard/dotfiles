@@ -6,7 +6,7 @@ fi
 
 ## begin oh-my-zsh config
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME=""
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,6 +67,10 @@ DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 ## end oh-my-zsh config
 
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -94,4 +98,3 @@ if command -v wt >/dev/null 2>&1; then
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
-

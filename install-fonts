@@ -8,5 +8,6 @@ then
 else
   brew update && \
     brew install font-hack && \
-    brew install font-hack-nerd-font
+    brew install font-hack-nerd-font && \
+    brew install font-iosevka-term-nerd-font
 fi

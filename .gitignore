@@ -1,3 +1,5 @@
 # machine-specific config
 .gitconfig.inc
 .zshenv.local
+!/.config/
+!/.config/starship.toml

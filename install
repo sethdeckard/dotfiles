@@ -29,6 +29,7 @@ fi
 set -x
 # Neovim config (native Lua setup)
 ln -sfh $PWD/nvim ~/.config/nvim
+ln -sf $PWD/.config/starship.toml ~/.config/starship.toml
 if [ -e ~/.tmuxinator ] && [ ! -L ~/.tmuxinator ]; then
   set +x
   echo -e "${bold}${yellow}~/.tmuxinator exists and is not a symlink; skipping.${reset}"
@@ -127,12 +128,19 @@ fi
 if command -v brew &> /dev/null; then
   echo -e "${blue}Installing modern CLI tools via Homebrew...${reset}"
   set -x
-  brew install bat delta eza zoxide
+  brew install bat delta eza starship zoxide
   set +x
+elif command -v apt-get &> /dev/null; then
+  echo -e "${bold}${yellow}apt-get detected; install starship manually or via package manager if desired.${reset}"
+elif command -v dnf &> /dev/null; then
+  echo -e "${bold}${yellow}dnf detected; install starship manually or via package manager if desired.${reset}"
+elif command -v pacman &> /dev/null; then
+  echo -e "${bold}${yellow}pacman detected; install starship manually or via package manager if desired.${reset}"
 else
-  echo -e "${bold}${yellow}Homebrew not installed, skipping CLI tools.${reset}"
+  echo -e "${bold}${yellow}No supported package manager detected, skipping CLI tools.${reset}"
 fi
 
 echo -e "${green}Done! Next steps:${reset}"
+echo -e "- Install Starship if it was skipped above and configure your shell by restarting zsh."
 echo -e "- Install a nerd font and configure terminal to use it, see ${red}install-fonts${reset}."
 echo -e "- Add a .gitconfig in ~/work to override email and signing key (optional)."

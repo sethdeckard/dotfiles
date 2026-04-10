@@ -1,0 +1,187 @@
+palette = "arasaka"
+add_newline = true
+command_timeout = 750
+format = """
+[┌─SYS](fg:yellow bold)\
+$os\
+$username\
+$hostname\
+[─ZONE](fg:muted)\
+$directory\
+$ruby\
+$fill\
+$time\
+$line_break\
+[└─](fg:muted)\
+$git_branch\
+${custom.submodule_status}\
+${custom.git_state}\
+$nodejs\
+$python\
+$rust\
+$package\
+$jobs\
+${custom.alert_status}\
+${custom.prompt_char}"""
+
+[palettes.arasaka]
+bg = "#0a0f14"
+fg = "#93a1ad"
+muted = "#55606b"
+yellow = "#f7f779"
+cyan = "#35f2ff"
+red = "#ff4d6d"
+orange = "#ff9f1c"
+blue = "#4da6ff"
+
+[os]
+disabled = false
+format = "[ $symbol](fg:yellow bold)"
+
+[os.symbols]
+Macos = "MAC"
+Ubuntu = "UBU"
+Debian = "DEB"
+Fedora = "FED"
+Arch = "ARC"
+Linux = "LNX"
+
+[username]
+show_always = false
+style_user = "fg:bg bg:yellow bold"
+style_root = "fg:bg bg:red bold"
+format = "[ $user ]($style)"
+
+[hostname]
+ssh_only = true
+format = "[ @$hostname ](fg:bg bg:cyan bold)"
+trim_at = "."
+
+[directory]
+style = "fg:fg bold"
+format = "[ $path ]($style)"
+truncation_length = 4
+truncation_symbol = "../"
+truncate_to_repo = false
+
+[directory.substitutions]
+"~" = "HOME"
+"Developer" = "DEV"
+"Projects" = "PROJECTS"
+"Downloads" = "DL"
+"Documents" = "DOCS"
+".dotfiles" = "DOTFILES"
+
+[fill]
+symbol = "─"
+style = "fg:muted"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "fg:bg bg:yellow bold"
+format = "[ T:$time ]($style)"
+
+[git_branch]
+symbol = ""
+style = "fg:red bold"
+format = "[ BR:$branch ]($style)"
+
+[custom.submodule_status]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git submodule status --recursive 2>/dev/null | grep -Eq '^[+U-]'"
+command = "printf ' SUB '"
+style = "fg:bg bg:yellow bold"
+format = "[$output]($style)"
+
+[custom.worktree_dirty]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && ( ! git diff --quiet --ignore-submodules=dirty || ! git diff --cached --quiet --ignore-submodules=dirty || test -n \"$(git ls-files --others --exclude-standard)\" )"
+command = "printf '! '"
+style = "fg:bg bg:red bold"
+format = "[$output]($style)"
+
+[custom.stash_marker]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test -n \"$(git stash list 2>/dev/null)\""
+command = "printf '≡ '"
+style = "fg:bg bg:red bold"
+format = "[$output]($style)"
+
+[custom.git_state]
+when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
+command = '''
+git_status_text=$(git status --porcelain --branch 2>/dev/null) || exit 0
+parts=""
+ahead=""
+behind=""
+if printf "%s\n" "$git_status_text" | grep -q '^## '; then
+  branch_line=$(printf "%s\n" "$git_status_text" | head -n1)
+  ahead=$(printf "%s\n" "$branch_line" | sed -n 's/.*ahead \([0-9][0-9]*\).*/\1/p')
+  behind=$(printf "%s\n" "$branch_line" | sed -n 's/.*behind \([0-9][0-9]*\).*/\1/p')
+fi
+if ! git diff --quiet --ignore-submodules=dirty || ! git diff --cached --quiet --ignore-submodules=dirty || test -n "$(git ls-files --others --exclude-standard)"; then
+  parts="! "
+fi
+if test -n "$(git stash list 2>/dev/null)"; then
+  parts="${parts}≡ "
+fi
+mod=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" && substr($0,1,2)!="??" { if (substr($0,2,1)=="M") c++ } END { print c+0 }')
+add=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="A" || substr($0,1,1)=="M") c++ } END { print c+0 }')
+del=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="D" || substr($0,2,1)=="D") c++ } END { print c+0 }')
+ren=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="R" || substr($0,2,1)=="R") c++ } END { print c+0 }')
+new=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)=="??" { c++ } END { print c+0 }')
+con=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { x=substr($0,1,1); y=substr($0,2,1); if (x=="U" || y=="U") c++ } END { print c+0 }')
+if [ "$con" -gt 0 ]; then parts="${parts}CON:${con} "; fi
+if [ "$add" -gt 0 ]; then parts="${parts}ADD:${add} "; fi
+if [ "$del" -gt 0 ]; then parts="${parts}DEL:${del} "; fi
+if [ "$ren" -gt 0 ]; then parts="${parts}REN:${ren} "; fi
+if [ "$mod" -gt 0 ]; then parts="${parts}MOD:${mod} "; fi
+if [ "$new" -gt 0 ]; then parts="${parts}NEW:${new} "; fi
+if [ -n "$ahead" ]; then parts="${parts}↑${ahead} "; fi
+if [ -n "$behind" ]; then parts="${parts}↓${behind} "; fi
+printf "%s" "$parts"
+'''
+style = "fg:bg bg:red bold"
+format = "[ $output]($style)"
+
+[ruby]
+symbol = "RB"
+style = "fg:red bold"
+format = "[ $symbol:$version ]($style)"
+detect_extensions = []
+
+[nodejs]
+symbol = "JS"
+style = "fg:bg bg:cyan bold"
+format = "[ $symbol:$version ]($style)"
+
+[python]
+symbol = "PY"
+style = "fg:bg bg:yellow bold"
+format = "[ $symbol:$version ]($style)"
+
+[rust]
+symbol = "RS"
+style = "fg:bg bg:orange bold"
+format = "[ $symbol:$version ]($style)"
+
+[package]
+symbol = "PKG"
+style = "fg:bg bg:blue bold"
+format = "[ $symbol:$version ]($style)"
+
+[jobs]
+symbol = "JOBS"
+style = "fg:cyan bold"
+number_threshold = 1
+format = "[ $symbol:$number ]($style)"
+
+[custom.alert_status]
+when = "test \"${STARSHIP_CMD_STATUS:-0}\" -ne 0 && test \"${STARSHIP_CMD_STATUS:-0}\" -ne 141"
+command = "printf ' ALERT:%s ' \"$STARSHIP_CMD_STATUS\""
+style = "fg:red bold"
+format = "[$output]($style)"
+
+[custom.prompt_char]
+when = "true"
+command = "if [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 0 ] && [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 141 ]; then printf ' !!'; else printf ' >>'; fi"
+style = "fg:yellow bold"
+format = "[$output]($style)"

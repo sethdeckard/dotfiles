@@ -36,7 +36,12 @@ git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/
 ### Zsh
 
 - [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) for plugin/configuration management.
+- [Starship](https://starship.rs) for the shell prompt. The repo-managed config lives at `.config/starship.toml` and is symlinked to `~/.config/starship.toml` by `./install`.
 - A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font. (helper script: `install-fonts`)
+
+### iTerm2
+
+- Import `Arasaka-HUD.itermcolors` in `iTerm2 > Settings > Profiles > Colors > Color Presets > Import...` for the matching Cyberpunk 2077-inspired palette.
 
 ## tmux
 
