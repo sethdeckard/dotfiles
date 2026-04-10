@@ -28,7 +28,7 @@ opt.laststatus = 2
 opt.scrolloff = 8
 opt.sidescrolloff = 15
 opt.sidescroll = 1
-opt.guifont = "Hack Nerd Font:h13"
+opt.guifont = "IosevkaTerm Nerd Font:h14"
 
 -- Indentation
 opt.autoindent = true

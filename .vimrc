@@ -292,12 +292,53 @@ if has("gui_running")
   set guioptions-=L
 endif
 
-set guifont=Hack\ Nerd\ Font:h13
+set guifont=IosevkaTerm\ Nerd\ Font:h14
 
 " airline settings
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'minimalist'
+
+" arasaka editor chrome
+hi Normal guifg=#93a1ad guibg=#0a0f14 ctermfg=252 ctermbg=233
+hi NormalNC guifg=#93a1ad guibg=#0a0f14 ctermfg=252 ctermbg=233
+hi SignColumn guibg=#0a0f14 ctermbg=233
+hi LineNr guifg=#55606b guibg=#0a0f14 ctermfg=240 ctermbg=233
+hi CursorLine guibg=#131923 ctermbg=234
+hi CursorLineNr guifg=#f7f779 guibg=#131923 gui=bold ctermfg=227 ctermbg=234 cterm=bold
+hi ColorColumn guibg=#131923 ctermbg=234
+hi VertSplit guifg=#55606b guibg=#0a0f14 ctermfg=240 ctermbg=233
+hi StatusLine guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
+hi StatusLineNC guifg=#55606b guibg=#131923 ctermfg=240 ctermbg=234
+hi Visual guibg=#1c2433 ctermbg=235
+hi Search guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
+hi IncSearch guifg=#0a0f14 guibg=#ff4d6d gui=bold ctermfg=233 ctermbg=204 cterm=bold
+hi Pmenu guifg=#93a1ad guibg=#131923 ctermfg=252 ctermbg=234
+hi PmenuSel guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
+hi MatchParen guifg=#f7f779 gui=bold ctermfg=227 cterm=bold
+hi Comment guifg=#55606b gui=italic ctermfg=240 cterm=italic
+hi Constant guifg=#f7f779 ctermfg=227
+hi String guifg=#f7f779 ctermfg=227
+hi Character guifg=#f7f779 ctermfg=227
+hi Number guifg=#ff9f1c ctermfg=214
+hi Boolean guifg=#ff9f1c gui=bold ctermfg=214 cterm=bold
+hi Identifier guifg=#93a1ad ctermfg=252
+hi Function guifg=#35f2ff gui=bold ctermfg=51 cterm=bold
+hi Statement guifg=#ff4d6d gui=bold ctermfg=204 cterm=bold
+hi Conditional guifg=#ff4d6d gui=bold ctermfg=204 cterm=bold
+hi Repeat guifg=#ff4d6d gui=bold ctermfg=204 cterm=bold
+hi Keyword guifg=#ff4d6d gui=bold ctermfg=204 cterm=bold
+hi Operator guifg=#ff4d6d ctermfg=204
+hi Type guifg=#35f2ff gui=bold ctermfg=51 cterm=bold
+hi Special guifg=#ff9f1c ctermfg=214
+hi PreProc guifg=#ff9f1c gui=bold ctermfg=214 cterm=bold
+hi Todo guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
+hi AirlineNormal guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
+hi AirlineInsert guifg=#0a0f14 guibg=#35f2ff gui=bold ctermfg=233 ctermbg=51 cterm=bold
+hi AirlineVisual guifg=#0a0f14 guibg=#ff4d6d gui=bold ctermfg=233 ctermbg=204 cterm=bold
+hi AirlineReplace guifg=#0a0f14 guibg=#ff4d6d gui=bold ctermfg=233 ctermbg=204 cterm=bold
+hi AirlineInactive guifg=#55606b guibg=#131923 ctermfg=240 ctermbg=234
 
 " ale settings
 let g:ale_lint_on_text_changed = 'normal'

@@ -7,7 +7,20 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     keys = {
-      { "<C-p>", function() require("telescope.builtin").git_files() end, desc = "Find git files" },
+      {
+        "<C-p>",
+        function()
+          local builtin = require("telescope.builtin")
+          local cwd = vim.loop.cwd()
+          local git_dir = vim.fn.finddir(".git", cwd .. ";")
+          if git_dir ~= "" then
+            builtin.git_files()
+          else
+            builtin.find_files()
+          end
+        end,
+        desc = "Find project files",
+      },
       { "<leader>ff", function() require("telescope.builtin").find_files() end, desc = "Find files" },
       { "<leader>fg", function() require("telescope.builtin").live_grep() end, desc = "Live grep" },
       { "<leader>fb", function() require("telescope.builtin").buffers() end, desc = "Buffers" },
