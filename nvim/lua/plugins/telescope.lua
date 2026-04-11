@@ -36,6 +36,23 @@ return {
         },
       })
       require("telescope").load_extension("fzf")
+
+      -- Arasaka highlight groups
+      local set_hl = vim.api.nvim_set_hl
+      set_hl(0, "TelescopeBorder", { fg = "#55606b", bg = "#0a0f14" })
+      set_hl(0, "TelescopePromptBorder", { fg = "#55606b", bg = "#0a0f14" })
+      set_hl(0, "TelescopeResultsBorder", { fg = "#55606b", bg = "#0a0f14" })
+      set_hl(0, "TelescopePreviewBorder", { fg = "#55606b", bg = "#0a0f14" })
+      set_hl(0, "TelescopePromptNormal", { fg = "#93a1ad", bg = "#0a0f14" })
+      set_hl(0, "TelescopeResultsNormal", { fg = "#93a1ad", bg = "#0a0f14" })
+      set_hl(0, "TelescopePreviewNormal", { fg = "#93a1ad", bg = "#0a0f14" })
+      set_hl(0, "TelescopePromptPrefix", { fg = "#f7f779", bold = true })
+      set_hl(0, "TelescopePromptTitle", { fg = "#0a0f14", bg = "#f7f779", bold = true })
+      set_hl(0, "TelescopeResultsTitle", { fg = "#0a0f14", bg = "#35f2ff", bold = true })
+      set_hl(0, "TelescopePreviewTitle", { fg = "#0a0f14", bg = "#ff4d6d", bold = true })
+      set_hl(0, "TelescopeSelection", { fg = "#f7f779", bg = "#131923", bold = true })
+      set_hl(0, "TelescopeSelectionCaret", { fg = "#ff4d6d" })
+      set_hl(0, "TelescopeMatching", { fg = "#35f2ff", bold = true })
     end,
   },
 }

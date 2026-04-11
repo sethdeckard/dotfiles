@@ -53,6 +53,25 @@ return {
           { name = "path" },
         }),
       })
+
+      -- Arasaka highlight groups
+      local set_hl = vim.api.nvim_set_hl
+      set_hl(0, "CmpItemAbbrMatch", { fg = "#35f2ff", bold = true })
+      set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = "#35f2ff" })
+      set_hl(0, "CmpItemKindFunction", { fg = "#35f2ff" })
+      set_hl(0, "CmpItemKindMethod", { fg = "#35f2ff" })
+      set_hl(0, "CmpItemKindVariable", { fg = "#93a1ad" })
+      set_hl(0, "CmpItemKindField", { fg = "#93a1ad" })
+      set_hl(0, "CmpItemKindProperty", { fg = "#93a1ad" })
+      set_hl(0, "CmpItemKindKeyword", { fg = "#ff4d6d" })
+      set_hl(0, "CmpItemKindClass", { fg = "#35f2ff", bold = true })
+      set_hl(0, "CmpItemKindStruct", { fg = "#35f2ff", bold = true })
+      set_hl(0, "CmpItemKindInterface", { fg = "#35f2ff", bold = true })
+      set_hl(0, "CmpItemKindModule", { fg = "#4da6ff" })
+      set_hl(0, "CmpItemKindSnippet", { fg = "#ff9f1c" })
+      set_hl(0, "CmpItemKindText", { fg = "#55606b" })
+      set_hl(0, "CmpItemKindConstant", { fg = "#f7f779" })
+      set_hl(0, "CmpItemKindValue", { fg = "#ff9f1c" })
     end,
   },
 }

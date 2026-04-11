@@ -4,6 +4,18 @@ return {
     build = ":MasonUpdate",
     config = function()
       require("mason").setup()
+
+      -- Arasaka highlight groups
+      local set_hl = vim.api.nvim_set_hl
+      set_hl(0, "MasonHeader", { fg = "#0a0f14", bg = "#f7f779", bold = true })
+      set_hl(0, "MasonHeaderSecondary", { fg = "#0a0f14", bg = "#35f2ff", bold = true })
+      set_hl(0, "MasonHighlight", { fg = "#35f2ff" })
+      set_hl(0, "MasonHighlightBlock", { fg = "#0a0f14", bg = "#35f2ff" })
+      set_hl(0, "MasonHighlightBlockBold", { fg = "#0a0f14", bg = "#35f2ff", bold = true })
+      set_hl(0, "MasonMuted", { fg = "#55606b" })
+      set_hl(0, "MasonMutedBlock", { fg = "#93a1ad", bg = "#131923" })
+      set_hl(0, "MasonError", { fg = "#ff4d6d" })
+      set_hl(0, "MasonWarning", { fg = "#ff9f1c" })
     end,
   },
   {

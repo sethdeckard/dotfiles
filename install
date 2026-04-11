@@ -132,6 +132,7 @@ if [ -d $xcode_theme_path ]; then
   echo -e "${blue}Installing custom Xcode theme...${reset}"
   set -x
   cp Solarized-Dark-Hacked.xccolortheme $xcode_theme_path
+  cp Arasaka-HUD.xccolortheme $xcode_theme_path
   set +x
 else
   echo -e "${bold}${yellow}Xcode not installed, skipping theme.${reset}"

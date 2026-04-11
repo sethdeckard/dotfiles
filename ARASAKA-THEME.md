@@ -95,6 +95,30 @@ Startup screen with ASCII art header in yellow, HUD-style button labels (`[F] FI
 
 Sign column highlights: Add=cyan, Change=yellow, Delete=red. Sign characters: `+`, `~`, `_`, `-`. Consistent with delta line number colors.
 
+#### Telescope.nvim
+
+**File:** `nvim/lua/plugins/telescope.lua`
+
+Fuzzy finder UI with Arasaka highlights: borders in muted, prompt title badge in yellow, results title in cyan, preview title in red. Selected row: yellow on bg_alt. Match highlights in cyan bold. Selection caret in red. All normal backgrounds set to bg.
+
+#### nvim-cmp Completion Menu
+
+**File:** `nvim/lua/plugins/completion.lua`
+
+Completion popup item kind highlights follow the syntax color mapping: functions/methods=cyan, classes/structs/interfaces=cyan bold, keywords=red, constants=yellow, snippets/values=orange, variables/fields/properties=fg, text=muted. Match highlights in cyan bold.
+
+#### which-key.nvim
+
+**File:** `nvim/lua/plugins/editor.lua`
+
+Keybind popup: keys in cyan bold, groups in orange, descriptions in fg, separators in muted, borders in muted, float background=bg, values in yellow.
+
+#### Mason.nvim
+
+**File:** `nvim/lua/plugins/lsp.lua`
+
+LSP installer TUI: header in yellow badge, secondary header in cyan badge, highlights in cyan, muted text in muted, muted blocks in fg on bg_alt, errors in red, warnings in orange.
+
 ### Vim
 
 #### Colorscheme Overrides
@@ -108,6 +132,12 @@ Same Arasaka highlight groups as Neovim using `:hi` commands. Both `guifg`/`guib
 **File:** `vim/autoload/airline/themes/arasaka.vim`
 
 Custom airline theme: Normal=yellow, Insert=cyan, Visual/Replace=red, Inactive=muted. Warning sections in orange, error sections in red. Symlinked to `~/.vim/autoload/airline/themes/arasaka.vim` via `install`.
+
+### Tig
+
+**File:** `.tigrc` (color section)
+
+Git TUI with Arasaka 256-color approximations: cursor=bg on yellow bold, title bar=yellow on bg_alt, commit IDs=red, dates=muted, added lines=cyan, removed lines=red, hunk headers=muted, refs/tags=orange, remotes=blue, HEAD=yellow bold, staged=cyan, unstaged=orange, untracked=yellow, search results=bg on yellow. Graph palette cycles through yellow/cyan/red/orange/blue.
 
 ### Git
 
@@ -185,6 +215,12 @@ SYS user@host // ZONE ~/path // BR branch // MDL model // CTX 82% // 5h:91% 7d:8
 - user@host in cyan, cwd in blue, branch in red, model in orange
 - Context/rate remaining: color-coded by level (cyan >= 60%, yellow >= 35%, orange >= 15%, red < 15%)
 
+### Xcode
+
+**File:** `Arasaka-HUD.xccolortheme`
+
+Xcode editor theme with full Arasaka palette: bg/bg_alt backgrounds, fg foreground, yellow cursor, visual selection. Syntax: keywords=red, strings/characters=yellow, numbers=orange, functions=cyan, types/classes=cyan, constants=yellow, variables=fg, comments=muted, preprocessor/macros=orange, URLs=blue, regex=orange. Font: IosevkaTermNFM at 15pt. Installed to `~/Library/Developer/Xcode/UserData/FontAndColorThemes/` via `install`.
+
 ## Files Map
 
 | File | Surface |
@@ -204,4 +240,10 @@ SYS user@host // ZONE ~/path // BR branch // MDL model // CTX 82% // 5h:91% 7d:8
 | `.config/bat/themes/arasaka.tmTheme` | bat syntax theme |
 | `.config/bat/config` | bat settings |
 | `claude-statusline-command.sh` | Claude Code status line |
+| `.tigrc` | Tig git TUI |
+| `nvim/lua/plugins/telescope.lua` | Neovim Telescope |
+| `nvim/lua/plugins/completion.lua` | Neovim nvim-cmp |
+| `nvim/lua/plugins/editor.lua` | Neovim which-key |
+| `nvim/lua/plugins/lsp.lua` | Neovim Mason |
+| `Arasaka-HUD.xccolortheme` | Xcode editor theme |
 | `install-fonts` | IosevkaTerm Nerd Font |
