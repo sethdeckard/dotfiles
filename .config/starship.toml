@@ -149,9 +149,7 @@ format = "[ $symbol:$version ]($style)"
 detect_extensions = []
 
 [nodejs]
-symbol = "JS"
-style = "fg:bg bg:cyan bold"
-format = "[ $symbol:$version ]($style)"
+disabled = true
 
 [python]
 symbol = "PY"
