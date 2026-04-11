@@ -26,7 +26,7 @@
   navigate = true
   dark = true
   line-numbers = true
-  syntax-theme = Solarized (dark)
+  syntax-theme = Arasaka
   file-style = "#f7f779" bold
   file-decoration-style = "#55606b" ul
   hunk-header-style = "#93a1ad" italic

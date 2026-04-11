@@ -21,8 +21,8 @@ _a_reset="\033[0m"
 # Data
 _user=$(whoami)
 _host=$(hostname -s)
-_session=$(printf '0x%04x%04x' $RANDOM $RANDOM)
 _runtime=$(if [[ "$(uname)" == "Darwin" ]]; then echo "MAC"; else uname -s | tr '[:lower:]' '[:upper:]' | cut -c1-3; fi)
+_zsh_ver="${ZSH_VERSION:-$(zsh --version 2>/dev/null | awk '{print $2}')}"
 _uptime=""
 if [[ "$(uname)" == "Darwin" ]]; then
   _boot=$(sysctl -n kern.boottime 2>/dev/null | awk '{print $4}' | tr -d ',')
@@ -36,6 +36,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   fi
 else
   _uptime=$(uptime -p 2>/dev/null | sed 's/^up //' || uptime | sed 's/.*up *//;s/,.*//')
+fi
+_disk=$(df -h / | awk 'NR==2 {print $5 " used"}')
+if [[ "$(uname)" == "Darwin" ]]; then
+  _net=$(ipconfig getifaddr en0 2>/dev/null || echo "offline")
+else
+  _net=$(hostname -I 2>/dev/null | awk '{print $1}')
+  [[ -z "$_net" ]] && _net="offline"
 fi
 
 # Box inner width = 49 (matching the 49 dashes in the border)
@@ -71,14 +78,15 @@ _row() {
 
 printf "\n"
 printf "%b\n" "${_a_muted}┌$(printf '%0.s─' $(seq 1 $_W))┐${_a_reset}"
-_header=$(_pad " ARASAKA SYSTEMS v6.1.4  //  NC DIVISION")
+_host_upper=$(echo "$_host" | tr '[:lower:]' '[:upper:]')
+_header=$(_pad " SYS INIT // ${_host_upper}")
 printf "%b%b%b\n" "${_a_muted}│${_a_reset}" "${_a_yellow}${_header}${_a_reset}" "${_a_muted}│${_a_reset}"
 _boxline "$(_pad "")"
 _row "OPERATOR:" "$_user"
 _row "HOST:" "$_host"
-_row "SESSION:" "$_session"
-_row "RUNTIME:" "$_runtime"
+_row "RUNTIME:" "$_runtime // zsh $_zsh_ver"
 _row "UPTIME:" "$_uptime"
-_row "STATUS:" "AUTHORIZED"
+_row "DISK:" "$_disk"
+_row "NET:" "$_net"
 printf "%b\n" "${_a_muted}└$(printf '%0.s─' $(seq 1 $_W))┘${_a_reset}"
 printf "\n"

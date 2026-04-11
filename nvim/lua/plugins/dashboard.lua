@@ -17,8 +17,8 @@ return {
       local header_lines = {
         "█████████████████████████████████████████████",
         "██                                         ██",
-        "██     A R A S A K A   S Y S T E M S       ██",
-        "██         NC DIVISION  //  NVIM           ██",
+        "██             T E R M I N A L             ██",
+        "██              S Y S T E M S              ██",
         "██                                         ██",
         "█████████████████████████████████████████████",
       }
@@ -26,9 +26,9 @@ return {
       dashboard.section.header.opts.hl = "ArasakaHeader"
 
       dashboard.section.buttons.val = {
-        dashboard.button("f", "  [F] FIND FILE", "<cmd>Telescope find_files<cr>"),
-        dashboard.button("r", "  [R] RECENT", "<cmd>Telescope oldfiles<cr>"),
-        dashboard.button("g", "  [G] GREP", "<cmd>Telescope live_grep<cr>"),
+        dashboard.button("f", "  [F] FIND FILE", "<cmd>lua require('telescope.builtin').find_files()<cr>"),
+        dashboard.button("r", "  [R] RECENT", "<cmd>lua require('telescope.builtin').oldfiles()<cr>"),
+        dashboard.button("g", "  [G] GREP", "<cmd>lua require('telescope.builtin').live_grep()<cr>"),
         dashboard.button("c", "  [C] CONFIG", "<cmd>e $MYVIMRC<cr>"),
         dashboard.button("q", "  [Q] QUIT", "<cmd>qa<cr>"),
       }
@@ -37,7 +37,11 @@ return {
         button.opts.hl_shortcut = "ArasakaShortcut"
       end
 
-      dashboard.section.footer.val = "TERMINAL AUTHORIZED // SESSION ACTIVE"
+      local v = vim.version()
+      local stats = require("lazy").stats()
+      dashboard.section.footer.val = string.format(
+        "NVIM v%d.%d.%d // %d PLUGINS LOADED", v.major, v.minor, v.patch, stats.loaded
+      )
       dashboard.section.footer.opts.hl = "ArasakaFooter"
 
       dashboard.config.layout = {
