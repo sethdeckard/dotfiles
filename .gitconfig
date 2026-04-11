@@ -26,6 +26,20 @@
   navigate = true
   dark = true
   line-numbers = true
+  syntax-theme = Solarized (dark)
+  file-style = "#f7f779" bold
+  file-decoration-style = "#55606b" ul
+  hunk-header-style = "#93a1ad" italic
+  hunk-header-decoration-style = "#55606b" box
+  plus-style = syntax "#0d2818"
+  minus-style = syntax "#2c1018"
+  plus-emph-style = syntax "#1a4d2e"
+  minus-emph-style = syntax "#4d1a2a"
+  line-numbers-plus-style = "#35f2ff"
+  line-numbers-minus-style = "#ff4d6d"
+  line-numbers-zero-style = "#55606b"
+  commit-decoration-style = "#f7f779" bold box ul
+  commit-style = "#f7f779" bold
 [pull]
   ff = only
 [push]
@@ -43,6 +57,7 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
   lgfix = log --grep="^Fix\\s*" --oneline --decorate
   lgup = log --grep="^Upgrade\\s*" --oneline --decorate
+  lga = "log --color --graph --pretty=format:'%C(#ff4d6d)%h%Creset %C(#55606b)//%Creset %s %C(#55606b)// %C(#35f2ff)%an%Creset %C(#f7f779)(%cr)%Creset%C(#ff9f1c)%d%Creset' --abbrev-commit"
   staged = diff --staged
   trash = branch -D
 [filter "lfs"]

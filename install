@@ -30,6 +30,9 @@ set -x
 # Neovim config (native Lua setup)
 ln -sfh $PWD/nvim ~/.config/nvim
 ln -sf $PWD/.config/starship.toml ~/.config/starship.toml
+mkdir -p ~/.config/bat/themes
+ln -sf $PWD/.config/bat/config ~/.config/bat/config
+ln -sf $PWD/.config/bat/themes/arasaka.tmTheme ~/.config/bat/themes/arasaka.tmTheme
 if [ -e ~/.tmuxinator ] && [ ! -L ~/.tmuxinator ]; then
   set +x
   echo -e "${bold}${yellow}~/.tmuxinator exists and is not a symlink; skipping.${reset}"
@@ -82,6 +85,15 @@ if [ ! -f ~/.zshenv.local ]; then
   echo 'export DISABLE_TELEMETRY=1' > ~/.zshenv.local
 fi
 
+if [ ! -d ~/.vim/autoload/airline/themes ]; then
+  echo -e "${blue}Creating ~/.vim/autoload/airline/themes directory...${reset}"
+  mkdir -p ~/.vim/autoload/airline/themes
+fi
+
+set -x
+ln -sf $PWD/vim/autoload/airline/themes/arasaka.vim ~/.vim/autoload/airline/themes/arasaka.vim
+set +x
+
 if [ ! -d ~/.vim/swapfiles ]; then
   echo -e "${blue}Creating ~/.vim/swapfiles directory...${reset}"
   mkdir ~/.vim/swapfiles
@@ -101,6 +113,7 @@ set -x
 ln -sf $PWD/bin/imgcat ~/bin/imgcat
 ln -sf $PWD/bin/imgls ~/bin/imgls
 ln -sf $PWD/bin/delete_branches ~/bin/delete_branches
+ln -sf $PWD/bin/motd ~/bin/motd
 set +x
 
 if ! command -v rbenv &> /dev/null
@@ -128,7 +141,7 @@ fi
 if command -v brew &> /dev/null; then
   echo -e "${blue}Installing modern CLI tools via Homebrew...${reset}"
   set -x
-  brew install bat delta eza starship zoxide
+  brew install bat delta eza fzf starship zoxide
   set +x
 elif command -v apt-get &> /dev/null; then
   echo -e "${bold}${yellow}apt-get detected; install starship manually or via package manager if desired.${reset}"

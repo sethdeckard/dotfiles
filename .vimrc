@@ -298,7 +298,7 @@ set guifont=IosevkaTerm\ Nerd\ Font:h14
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'minimalist'
+let g:airline_theme = 'arasaka'
 
 " arasaka editor chrome
 hi Normal guifg=#93a1ad guibg=#0a0f14 ctermfg=252 ctermbg=233
@@ -334,11 +334,7 @@ hi Type guifg=#35f2ff gui=bold ctermfg=51 cterm=bold
 hi Special guifg=#ff9f1c ctermfg=214
 hi PreProc guifg=#ff9f1c gui=bold ctermfg=214 cterm=bold
 hi Todo guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
-hi AirlineNormal guifg=#0a0f14 guibg=#f7f779 gui=bold ctermfg=233 ctermbg=227 cterm=bold
-hi AirlineInsert guifg=#0a0f14 guibg=#35f2ff gui=bold ctermfg=233 ctermbg=51 cterm=bold
-hi AirlineVisual guifg=#0a0f14 guibg=#ff4d6d gui=bold ctermfg=233 ctermbg=204 cterm=bold
-hi AirlineReplace guifg=#0a0f14 guibg=#ff4d6d gui=bold ctermfg=233 ctermbg=204 cterm=bold
-hi AirlineInactive guifg=#55606b guibg=#131923 ctermfg=240 ctermbg=234
+
 
 " ale settings
 let g:ale_lint_on_text_changed = 'normal'

@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# Arasaka HUD -- terminal boot sequence
+# Sourced from .zshrc on interactive shell startup
+
+# Guards: skip in non-interactive, VS Code, or nested tmux panes
+[[ ! -o interactive ]] 2>/dev/null && [[ $- != *i* ]] && return
+[[ "$TERM_PROGRAM" == "vscode" ]] && return
+if [[ -n "$TMUX" ]]; then
+  # only show in first window, first pane
+  tmux_window=$(tmux display-message -p '#I' 2>/dev/null)
+  tmux_pane=$(tmux display-message -p '#P' 2>/dev/null)
+  [[ "$tmux_window" != "1" || "$tmux_pane" != "1" ]] && return
+fi
+
+# Arasaka palette (24-bit ANSI)
+_a_yellow="\033[1;38;2;247;247;121m"
+_a_cyan="\033[38;2;53;242;255m"
+_a_muted="\033[38;2;85;96;107m"
+_a_reset="\033[0m"
+
+# Data
+_user=$(whoami)
+_host=$(hostname -s)
+_session=$(printf '0x%04x%04x' $RANDOM $RANDOM)
+_runtime=$(if [[ "$(uname)" == "Darwin" ]]; then echo "MAC"; else uname -s | tr '[:lower:]' '[:upper:]' | cut -c1-3; fi)
+_uptime=""
+if [[ "$(uname)" == "Darwin" ]]; then
+  _boot=$(sysctl -n kern.boottime 2>/dev/null | awk '{print $4}' | tr -d ',')
+  if [[ -n "$_boot" ]]; then
+    _now=$(date +%s)
+    _secs=$(( _now - _boot ))
+    _days=$(( _secs / 86400 ))
+    _hours=$(( (_secs % 86400) / 3600 ))
+    _mins=$(( (_secs % 3600) / 60 ))
+    _uptime="${_days}d ${_hours}h ${_mins}m"
+  fi
+else
+  _uptime=$(uptime -p 2>/dev/null | sed 's/^up //' || uptime | sed 's/.*up *//;s/,.*//')
+fi
+
+# Box inner width = 49 (matching the 49 dashes in the border)
+# Every line: │ + 49 visible chars + │
+_W=49
+
+# Pad a string to exactly $_W chars
+_pad() { printf "%-${_W}s" "$1"; }
+
+# Colored box line: │ <content padded to _W> │
+_boxline() {
+  printf "%b%s%b\n" "${_a_muted}│${_a_reset}" "$1" "${_a_muted}│${_a_reset}"
+}
+
+# Data row: "  LABEL:     value                              "
+_row() {
+  local label="$1" value="$2"
+  local plain
+  plain=$(printf "  %-11s%s" "$label" "$value")
+  local padded
+  padded=$(_pad "$plain")
+  # Re-apply color to the label and value portions within the padded string
+  # Positions: 2 spaces, 11 chars label, rest is value (padded)
+  local label_padded value_padded
+  label_padded=$(printf "%-11s" "$label")
+  value_padded="${padded:13}"
+  printf "%b  %b%b%b\n" \
+    "${_a_muted}│${_a_reset}" \
+    "${_a_muted}${label_padded}${_a_reset}" \
+    "${_a_cyan}${value_padded}${_a_reset}" \
+    "${_a_muted}│${_a_reset}"
+}
+
+printf "\n"
+printf "%b\n" "${_a_muted}┌$(printf '%0.s─' $(seq 1 $_W))┐${_a_reset}"
+_header=$(_pad " ARASAKA SYSTEMS v6.1.4  //  NC DIVISION")
+printf "%b%b%b\n" "${_a_muted}│${_a_reset}" "${_a_yellow}${_header}${_a_reset}" "${_a_muted}│${_a_reset}"
+_boxline "$(_pad "")"
+_row "OPERATOR:" "$_user"
+_row "HOST:" "$_host"
+_row "SESSION:" "$_session"
+_row "RUNTIME:" "$_runtime"
+_row "UPTIME:" "$_uptime"
+_row "STATUS:" "AUTHORIZED"
+printf "%b\n" "${_a_muted}└$(printf '%0.s─' $(seq 1 $_W))┘${_a_reset}"
+printf "\n"
