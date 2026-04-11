@@ -4,8 +4,7 @@ bundler-audit
 cocoapods
 dotenv
 iStats
-mailcatcher
-middleman
+
 pry
 rails
 rubocop

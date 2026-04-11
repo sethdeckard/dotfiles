@@ -1,10 +1,6 @@
 # user scripts
 export PATH=$PATH:$HOME/bin
 
-# android
-export PATH=$PATH:/Users/seth/Library/Android/sdk/platform-tools
-export PATH=$PATH:/Users/seth/Library/Android/sdk/tools
-
 # golang paths
 export GOPATH=$HOME/Projects/go
 export PATH=$PATH:$GOPATH/bin
@@ -18,7 +14,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 export EDITOR="nvim"
-export VISUAL="mvim"
+export VISUAL="nvim"
 export BAT_CONFIG_PATH="$HOME/.config/bat/config"
 
 # gpg
@@ -38,12 +34,11 @@ export FZF_DEFAULT_OPTS="--color=bg:#0a0f14,bg+:#131923,fg:#93a1ad,fg+:#f7f779,h
 export COCOAPODS_DISABLE_STATS=true
 
 # pyenv: install pythons as frameworks
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-# Fastlane
-export FASTLANE_OPT_OUT_USAGE=true
+if [ -d "$PYENV_ROOT" ]; then
+  export PYTHON_CONFIGURE_OPTS="--enable-framework"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
 
 # Machine-specific overrides
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

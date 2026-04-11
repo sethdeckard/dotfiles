@@ -58,8 +58,8 @@ plugins=(
   rake
   ruby
   zsh-autosuggestions
+  zsh-completions
   zsh-syntax-highlighting
-  docker-compose
   xcworkspace
 )
 

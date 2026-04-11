@@ -1,67 +1,88 @@
 # .dotfiles
 
-Various configuration files for my development environment (vim, zsh, tmux, etc.). Includes an install script to create symbolic links in `$HOME`. Works on both macOS and Linux.
+Personal development environment configuration (Neovim, zsh, tmux, etc.) with an install script that symlinks configs into `$HOME`. Themed with the [Arasaka HUD](ARASAKA-THEME.md) color palette inspired by Cyberpunk 2077. Works on both macOS and Linux.
 
 ## Setup
 
-1. Clone to a directory of your choice (ex: `~/.dotfiles`.).
-2. Update Git submodules: `git submodule update --init --recursive`.
-3. Install optionals (Homebrew, rbenv, etc. - see sections below).
-4. Run `./install` to create or recreate the symlinks.
+1. Clone to `~/.dotfiles`.
+2. Run `./install` to create symlinks and install CLI tools.
+3. Install a Nerd Font: `./install-fonts`.
+4. Import `Arasaka-HUD.itermcolors` in iTerm2 under Settings > Profiles > Colors > Color Presets.
+
+The install script is idempotent and safe to re-run.
 
 ### macOS
 
-Install [Homebrew](https://brew.sh) (optional):
+Install [Homebrew](https://brew.sh):
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-#### Homebrew support
+The install script uses Homebrew to install: bat, delta, eza, fzf, neovim, starship, tmux, zoxide.
 
-- Adds completions for Zsh if brew is installed.
-- Assigns `HOMEBREW_GITHUB_API_TOKEN` from a text file in `~/.config/homebrew/.api_token` (need better secret management).
-- Includes a helper script to install required fonts via Homebrew. (`install-fonts`)
+## Structure
 
-### rbenv
+- Config files prefixed with `.` live at the repo root and are symlinked to `$HOME`.
+- `nvim/` is symlinked as a directory to `~/.config/nvim`.
+- `zsh_custom/` contains Oh My Zsh custom plugins and themes (managed as git submodules).
+- `bin/` contains utility scripts symlinked into `~/bin`.
+- `vim/` contains Vim-specific config (airline theme) symlinked into `~/.vim/`.
+- `.config/` contains configs for starship, bat, and other XDG tools.
+- `claude_settings.json` is symlinked to `~/.claude/settings.json`.
 
-[rbenv](https://github.com/rbenv/rbenv) is supported, if installed.
+## Editors
 
-#### Default Ruby Gems
+### Neovim (primary)
 
-```
-git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
-```
+Lua-based config in `nvim/lua/`. Plugin manager: [lazy.nvim](https://github.com/folke/lazy.nvim).
 
-### Zsh
+- **LSP**: Mason + nvim-lspconfig (clangd, gopls, pyright, solargraph, ts_ls, sourcekit, and more)
+- **Completion**: nvim-cmp + LuaSnip
+- **Fuzzy find**: Telescope with fzf-native
+- **Git**: fugitive + gitsigns.nvim
+- **UI**: lualine, alpha-nvim dashboard, Arasaka theme overrides
+- **Treesitter**: syntax highlighting and text objects
 
-- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) for plugin/configuration management.
-- [Starship](https://starship.rs) for the shell prompt. The repo-managed config lives at `.config/starship.toml` and is symlinked to `~/.config/starship.toml` by `./install`.
-- A font from [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts) installed and configured in your terminal emulator as the non-ASCII font. (helper script: `install-fonts`)
+### Vim / MacVim (secondary)
 
-### iTerm2
+Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug). Lightweight setup with fugitive, gitgutter, airline (Arasaka theme), solarized8 + Arasaka highlight overrides, and vim-rails.
 
-- Import `Arasaka-HUD.itermcolors` in `iTerm2 > Settings > Profiles > Colors > Color Presets > Import...` for the matching Cyberpunk 2077-inspired palette.
+Font: IosevkaTerm Nerd Font (`install-fonts`).
+
+## Shell
+
+- [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) for plugin management.
+- [Starship](https://starship.rs) prompt with custom Arasaka HUD layout.
+- Custom plugins as git submodules: zsh-autosuggestions, zsh-completions, zsh-syntax-highlighting.
+- Modern CLI replacements: bat (cat), delta (diff), eza (ls), fzf (fuzzy find), zoxide (cd).
 
 ## tmux
 
 - [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
-- [Powerline](https://github.com/powerline/powerline) (requires a proper Python, not system)
+- Arasaka-themed status bar at top with HUD-style labels.
 
-## Vim
+## iTerm2
 
-- Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug).
-- GUI Vim requires the font `Hack Nerd Font`. (helper script: `install-fonts`)
-- [Universal Ctags](https://github.com/universal-ctags/ctags) is required for [Gutentags](https://github.com/ludovicchabant/vim-gutentags).
+- Import `Arasaka-HUD.itermcolors` for the terminal color scheme.
+- Font: IosevkaTerm Nerd Font, 15pt, ligatures off.
 
-## Assumptions
+## Window Management
 
-- Assumes `~/projects/` for root project directory (used in `GO_PATH`, etc.), not configurable but could be made to be so.
+- [AeroSpace](https://github.com/nicklockwood/AeroSpace) tiling window manager (`.aerospace.toml`).
 
-## TODO
+## Theme
 
-- Scripts for bootstrapping ruby/rbenv/default-gems, python/pyenv/packages.
-- Dynamically generate section of tmux.conf that references powerline path based on above (can't seem to use ENV in tmux.conf).
+The Arasaka HUD theme is documented in [ARASAKA-THEME.md](ARASAKA-THEME.md). It covers: iTerm2, Starship, tmux, Neovim, Vim, tig, bat, delta, eza, FZF, zsh-syntax-highlighting, Claude Code status line, and Xcode.
+
+## rbenv
+
+Supported if installed. Default gems are listed in `default-gems` and auto-installed for each new Ruby version via [rbenv-default-gems](https://github.com/rbenv/rbenv-default-gems).
+
+## Homebrew
+
+- Zsh completions enabled if brew is installed.
+- `HOMEBREW_GITHUB_API_TOKEN` read from `~/.config/homebrew/.api_token`.
 
 ## License
 

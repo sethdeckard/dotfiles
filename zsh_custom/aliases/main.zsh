@@ -15,7 +15,6 @@ alias kbaa='kubectl apply -f ./'
 alias kbgs='kubectl get service'
 
 # macOS specific
-alias app-loader="open /Applications/Xcode.app/Contents/Applications/Application\ Loader.app"
 alias update-macos='sudo softwareupdate --install --all --restart --force --agree-to-license'
 
 # misc
@@ -30,7 +29,7 @@ alias txw='tmux list-windows'
 
 # vim
 alias vi=nvim
-alias vimm="vim -u $DOTFILES/.vimrc_min" # vim with minimal customization
+
 
 # xcode
 alias xdd='rm -rf ~/Library/Developer/Xcode/DerivedData && echo "Derived data deleted"'
