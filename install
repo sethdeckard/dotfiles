@@ -141,7 +141,7 @@ fi
 if command -v brew &> /dev/null; then
   echo -e "${blue}Installing modern CLI tools via Homebrew...${reset}"
   set -x
-  brew install bat delta eza fzf starship zoxide
+  brew install bat delta eza fzf neovim starship tmux zoxide
   set +x
 elif command -v apt-get &> /dev/null; then
   echo -e "${bold}${yellow}apt-get detected; install starship manually or via package manager if desired.${reset}"
