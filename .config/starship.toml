@@ -9,6 +9,9 @@ $hostname\
 [─ZONE](fg:muted)\
 $directory\
 $ruby\
+$python\
+$rust\
+$nodejs\
 $fill\
 $time\
 $line_break\
@@ -16,10 +19,6 @@ $line_break\
 $git_branch\
 ${custom.submodule_status}\
 ${custom.git_state}\
-$nodejs\
-$python\
-$rust\
-$package\
 $jobs\
 ${custom.alert_status}\
 ${custom.prompt_char}"""
@@ -153,18 +152,16 @@ disabled = true
 
 [python]
 symbol = "PY"
-style = "fg:bg bg:yellow bold"
+style = "fg:red bold"
 format = "[ $symbol:$version ]($style)"
 
 [rust]
 symbol = "RS"
-style = "fg:bg bg:orange bold"
+style = "fg:red bold"
 format = "[ $symbol:$version ]($style)"
 
 [package]
-symbol = "PKG"
-style = "fg:bg bg:blue bold"
-format = "[ $symbol:$version ]($style)"
+disabled = true
 
 [jobs]
 symbol = "JOBS"
