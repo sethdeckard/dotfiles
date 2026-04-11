@@ -33,6 +33,8 @@ ln -sf $PWD/.config/starship.toml ~/.config/starship.toml
 mkdir -p ~/.config/bat/themes
 ln -sf $PWD/.config/bat/config ~/.config/bat/config
 ln -sf $PWD/.config/bat/themes/arasaka.tmTheme ~/.config/bat/themes/arasaka.tmTheme
+mkdir -p ~/.config/ghostty
+ln -sfh $PWD/.config/ghostty ~/.config/ghostty
 if [ -e ~/.tmuxinator ] && [ ! -L ~/.tmuxinator ]; then
   set +x
   echo -e "${bold}${yellow}~/.tmuxinator exists and is not a symlink; skipping.${reset}"
@@ -128,8 +130,9 @@ fi
 
 # Xcode custom editor theme
 xcode_theme_path=~/Library/Developer/Xcode/UserData/FontAndColorThemes/
-if [ -d $xcode_theme_path ]; then
+if [ -d ~/Library/Developer/Xcode/UserData ]; then
   echo -e "${blue}Installing custom Xcode theme...${reset}"
+  mkdir -p "$xcode_theme_path"
   set -x
   cp Solarized-Dark-Hacked.xccolortheme $xcode_theme_path
   cp Arasaka-HUD.xccolortheme $xcode_theme_path
@@ -142,7 +145,7 @@ fi
 if command -v brew &> /dev/null; then
   echo -e "${blue}Installing modern CLI tools via Homebrew...${reset}"
   set -x
-  brew install bat delta eza fzf neovim starship tmux zoxide
+  brew install bat delta direnv eza fd fzf lazygit neovim ripgrep starship tig tealdeer tmux zoxide
   set +x
 elif command -v apt-get &> /dev/null; then
   echo -e "${bold}${yellow}apt-get detected; install starship manually or via package manager if desired.${reset}"

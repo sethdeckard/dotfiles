@@ -19,4 +19,12 @@ return {
       set_hl(0, "GitSignsDelete", { fg = "#ff4d6d", bg = "#0a0f14" })
     end,
   },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit", "LazyGitConfig", "LazyGitCurrentFile" },
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
 }

@@ -33,3 +33,6 @@ alias vi=nvim
 
 # xcode
 alias xdd='rm -rf ~/Library/Developer/Xcode/DerivedData && echo "Derived data deleted"'
+
+# lazygit
+alias lg='lazygit'

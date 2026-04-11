@@ -34,6 +34,11 @@ return {
           },
           file_ignore_patterns = { "%.git/", "node_modules/", "tmp/" },
         },
+        pickers = {
+          find_files = {
+            find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".git" },
+          },
+        },
       })
       require("telescope").load_extension("fzf")
 

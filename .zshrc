@@ -101,6 +101,11 @@ if command -v fzf &>/dev/null; then
   eval "$(fzf --zsh)"
 fi
 
+# direnv: auto-load .envrc
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
 # worktrunk shell integration to allow commands to change directories
 if command -v wt >/dev/null 2>&1; then
   eval "$(command wt config shell init zsh)"

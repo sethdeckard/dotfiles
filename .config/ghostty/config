@@ -1,0 +1,43 @@
+# Font
+font-family = IosevkaTerm Nerd Font
+font-size = 15
+
+# Window
+window-decoration = false
+window-padding-x = 4
+window-padding-y = 4
+
+# Shell integration
+shell-integration = zsh
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+# Arasaka HUD palette
+background = 0a0f14
+foreground = 93a1ad
+cursor-color = f7f779
+selection-background = f7f779
+selection-foreground = 0a0f14
+
+# ANSI colors (normal)
+palette = 0=#0a0f14
+palette = 1=#ff4d6d
+palette = 2=#90c580
+palette = 3=#f7f779
+palette = 4=#4da6ff
+palette = 5=#ff4d6d
+palette = 6=#35f2ff
+palette = 7=#93a1ad
+
+# ANSI colors (bright)
+palette = 8=#303843
+palette = 9=#ff4d6d
+palette = 10=#90c580
+palette = 11=#f7f779
+palette = 12=#4da6ff
+palette = 13=#ff4d6d
+palette = 14=#35f2ff
+palette = 15=#d9e0e8
