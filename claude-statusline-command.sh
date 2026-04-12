@@ -16,8 +16,8 @@ _reset="\033[0m"
 user=$(whoami)
 host=$(hostname -s)
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
-# Abbreviate $HOME as ~
-cwd="${cwd/#$HOME/~}"
+# Abbreviate $HOME as HOME
+cwd="${cwd/#$HOME/HOME}"
 
 model=$(echo "$input" | jq -r '.model.display_name // ""' | sed 's/ ([^)]*context)$//')
 
