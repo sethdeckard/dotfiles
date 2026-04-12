@@ -28,7 +28,22 @@ export TMUXINATOR_CONFIG="$DOTFILES/tmuxinator"
 export EZA_COLORS="di=#4da6ff:fi=#93a1ad:ex=#f7f779:ln=#35f2ff:or=#ff4d6d:lc=#35f2ff:xx=#35f2ff:ur=#f7f779:uw=#ff4d6d:ux=#35f2ff:gr=#f7f779:gw=#ff4d6d:gx=#35f2ff:tr=#f7f779:tw=#ff4d6d:tx=#35f2ff:da=#55606b:sn=#35f2ff:sb=#35f2ff:uu=#f7f779:un=#ff9f1c:gu=#f7f779:gn=#ff9f1c"
 
 # fzf: arasaka palette
-export FZF_DEFAULT_OPTS="--color=bg:#0a0f14,bg+:#131923,fg:#93a1ad,fg+:#f7f779,hl:#35f2ff,hl+:#35f2ff,info:#f7f779,prompt:#f7f779,pointer:#ff4d6d,marker:#ff9f1c,spinner:#35f2ff,header:#55606b,border:#55606b"
+export FZF_DEFAULT_OPTS=" \
+  --color=bg:#0a0f14,bg+:#131923,fg:#93a1ad,fg+:#f7f779,hl:#35f2ff,hl+:#35f2ff \
+  --color=info:#f7f779,prompt:#f7f779,pointer:#ff4d6d,marker:#ff9f1c,spinner:#35f2ff \
+  --color=header:#55606b,border:#55606b,separator:#55606b,scrollbar:#55606b \
+  --color=label:#f7f779,query:#93a1ad \
+  --layout=reverse \
+  --border=rounded \
+  --border-label=' SCAN ' \
+  --border-label-pos=3 \
+  --prompt='// ' \
+  --pointer='▸' \
+  --marker='◆' \
+  --separator='─' \
+  --scrollbar='│' \
+  --preview-window='right,50%,border-left' \
+  --info=inline-right"
 
 # CocoaPods
 export COCOAPODS_DISABLE_STATS=true

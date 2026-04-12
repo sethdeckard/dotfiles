@@ -29,8 +29,14 @@
   syntax-theme = arasaka
   file-style = "#f7f779" bold
   file-decoration-style = "#55606b" ul
+  file-added-label = "NEW //"
+  file-modified-label = "DELTA //"
+  file-removed-label = "DROP //"
+  file-renamed-label = "MV //"
   hunk-header-style = "#93a1ad" italic
-  hunk-header-decoration-style = "#55606b" box
+  hunk-header-decoration-style = "#55606b" ul
+  hunk-header-file-style = "#f7f779" bold
+  hunk-header-line-number-style = "#35f2ff"
   plus-style = syntax "#0d2818"
   minus-style = syntax "#2c1018"
   plus-emph-style = syntax "#1a4d2e"
@@ -38,8 +44,18 @@
   line-numbers-plus-style = "#35f2ff"
   line-numbers-minus-style = "#ff4d6d"
   line-numbers-zero-style = "#55606b"
+  line-numbers-left-format = "{nm:>4} "
+  line-numbers-right-format = "{np:>4} "
+  line-numbers-left-style = "#55606b"
+  line-numbers-right-style = "#55606b"
   commit-decoration-style = "#f7f779" bold box ul
   commit-style = "#f7f779" bold
+  blame-format = "{author:<15} {timestamp:<15} "
+  blame-palette = "#0a0f14 #131923 #1c2433"
+  blame-separator-format = "│{n:^5}│"
+  blame-separator-style = "#55606b"
+  blame-code-style = syntax
+  blame-timestamp-format = "%Y-%m-%d %H:%M"
 [pull]
   ff = only
 [push]

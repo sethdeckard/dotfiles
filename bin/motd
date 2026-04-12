@@ -37,13 +37,56 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
   _uptime=$(uptime -p 2>/dev/null | sed 's/^up //' || uptime | sed 's/.*up *//;s/,.*//')
 fi
-_disk=$(df -h / | awk 'NR==2 {print $5 " used"}')
+# On modern macOS, / is the read-only system volume; real user data lives on /System/Volumes/Data
+if [[ "$(uname)" == "Darwin" && -d /System/Volumes/Data ]]; then
+  _disk=$(df -h /System/Volumes/Data | awk 'NR==2 {print $5 " used"}')
+else
+  _disk=$(df -h / | awk 'NR==2 {print $5 " used"}')
+fi
 if [[ "$(uname)" == "Darwin" ]]; then
   _net=$(ipconfig getifaddr en0 2>/dev/null || echo "offline")
 else
   _net=$(hostname -I 2>/dev/null | awk '{print $1}')
   [[ -z "$_net" ]] && _net="offline"
 fi
+
+# Memory
+if [[ "$(uname)" == "Darwin" ]]; then
+  # Used = active + wired + compressed (matches Activity Monitor's "Memory Used").
+  # Page size is dynamic (4KB on Intel, 16KB on Apple Silicon) — parse from vm_stat header.
+  _mem_total=$(sysctl -n hw.memsize 2>/dev/null)
+  _vm=$(vm_stat 2>/dev/null)
+  _page_size=$(printf '%s\n' "$_vm" | awk '/page size of/ {for(i=1;i<=NF;i++) if($i=="of") {print $(i+1); exit}}')
+  _mem_used_pages=$(printf '%s\n' "$_vm" | awk '
+    /Pages active/               {gsub(/\./,"",$3); a=$3}
+    /Pages wired down/           {gsub(/\./,"",$4); w=$4}
+    /Pages occupied by compressor/ {gsub(/\./,"",$5); c=$5}
+    END {print a+w+c}
+  ')
+  if [[ -n "$_mem_used_pages" && "$_mem_used_pages" -gt 0 && -n "$_mem_total" && -n "$_page_size" ]]; then
+    _mem_pct=$(( _mem_used_pages * _page_size * 100 / _mem_total ))
+    _mem="${_mem_pct}% used"
+  else
+    _mem="N/A"
+  fi
+else
+  _mem=$(free 2>/dev/null | awk '/^Mem:/ {printf "%.0f%% used", $3/$2*100}')
+  [[ -z "$_mem" ]] && _mem="N/A"
+fi
+
+# CPU model
+if [[ "$(uname)" == "Darwin" ]]; then
+  # Apple Silicon has no machdep.cpu.brand_string; fall back to hw.model / system_profiler
+  _cpu=$(sysctl -n machdep.cpu.brand_string 2>/dev/null)
+  if [[ -z "$_cpu" ]]; then
+    _cpu=$(system_profiler SPHardwareDataType 2>/dev/null | awk -F': ' '/Chip/ {print $2; exit}')
+  fi
+  [[ -z "$_cpu" ]] && _cpu=$(sysctl -n hw.model 2>/dev/null)
+  _cpu=$(printf '%s' "$_cpu" | sed 's/(R)//g;s/(TM)//g;s/  */ /g' | cut -c1-30)
+else
+  _cpu=$(grep -m1 'model name' /proc/cpuinfo 2>/dev/null | cut -d: -f2 | sed 's/^ *//;s/(R)//g;s/(TM)//g' | cut -c1-30)
+fi
+[[ -z "$_cpu" ]] && _cpu="UNKNOWN"
 
 # Box inner width = 49 (matching the 49 dashes in the border)
 # Every line: │ + 49 visible chars + │
@@ -77,6 +120,11 @@ _row() {
 }
 
 printf "\n"
+for _scan_msg in "SCANNING SUBSYSTEMS..." "AUTHENTICATING NODE..." "LINK ESTABLISHED."; do
+  printf "\r  %b%s%b" "${_a_muted}" "$_scan_msg" "${_a_reset}"
+  sleep 0.08
+done
+printf "\r%-40s\r" ""
 printf "%b\n" "${_a_muted}┌$(printf '%0.s─' $(seq 1 $_W))┐${_a_reset}"
 _host_upper=$(echo "$_host" | tr '[:lower:]' '[:upper:]')
 _header=$(_pad " SYS INIT // ${_host_upper}")
@@ -88,5 +136,7 @@ _row "RUNTIME:" "$_runtime // zsh $_zsh_ver"
 _row "UPTIME:" "$_uptime"
 _row "DISK:" "$_disk"
 _row "NET:" "$_net"
+_row "MEM:" "$_mem"
+_row "CPU:" "$_cpu"
 printf "%b\n" "${_a_muted}└$(printf '%0.s─' $(seq 1 $_W))┘${_a_reset}"
 printf "\n"

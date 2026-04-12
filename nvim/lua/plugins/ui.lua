@@ -91,6 +91,37 @@ return {
       set_hl(0, "@parameter", { fg = arasaka.fg })
       set_hl(0, "@punctuation.delimiter", { fg = arasaka.muted })
       set_hl(0, "@punctuation.bracket", { fg = arasaka.muted })
+
+      -- noice.nvim
+      set_hl(0, "NoiceCmdline", { fg = arasaka.fg, bg = arasaka.bg_alt })
+      set_hl(0, "NoiceCmdlineIcon", { fg = arasaka.yellow, bg = arasaka.bg_alt })
+      set_hl(0, "NoiceCmdlinePopup", { fg = arasaka.fg, bg = arasaka.bg_alt })
+      set_hl(0, "NoiceCmdlinePopupBorder", { fg = arasaka.muted, bg = arasaka.bg_alt })
+      set_hl(0, "NoiceCmdlinePopupTitle", { fg = arasaka.yellow, bold = true })
+      set_hl(0, "NoiceConfirm", { fg = arasaka.fg, bg = arasaka.bg_alt })
+      set_hl(0, "NoiceConfirmBorder", { fg = arasaka.yellow, bg = arasaka.bg_alt })
+
+      -- nvim-notify
+      set_hl(0, "NotifyINFOBorder", { fg = arasaka.cyan })
+      set_hl(0, "NotifyINFOTitle", { fg = arasaka.cyan, bold = true })
+      set_hl(0, "NotifyINFOIcon", { fg = arasaka.cyan })
+      set_hl(0, "NotifyWARNBorder", { fg = arasaka.yellow })
+      set_hl(0, "NotifyWARNTitle", { fg = arasaka.yellow, bold = true })
+      set_hl(0, "NotifyWARNIcon", { fg = arasaka.yellow })
+      set_hl(0, "NotifyERRORBorder", { fg = arasaka.red })
+      set_hl(0, "NotifyERRORTitle", { fg = arasaka.red, bold = true })
+      set_hl(0, "NotifyERRORIcon", { fg = arasaka.red })
+      set_hl(0, "NotifyDEBUGBorder", { fg = arasaka.muted })
+      set_hl(0, "NotifyDEBUGTitle", { fg = arasaka.muted })
+      set_hl(0, "NotifyDEBUGIcon", { fg = arasaka.muted })
+      set_hl(0, "NotifyTRACEBorder", { fg = arasaka.muted })
+      set_hl(0, "NotifyTRACETitle", { fg = arasaka.muted })
+      set_hl(0, "NotifyTRACEIcon", { fg = arasaka.muted })
+      set_hl(0, "NotifyBackground", { bg = arasaka.bg_alt })
+
+      -- indent-blankline
+      set_hl(0, "IblIndent", { fg = "#1c2433" })
+      set_hl(0, "IblScope", { fg = arasaka.cyan })
     end,
   },
   {
@@ -161,4 +192,63 @@ return {
     end,
   },
   { "nvim-tree/nvim-web-devicons", lazy = true },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    opts = {
+      presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+      },
+      cmdline = {
+        view = "cmdline_popup",
+        format = {
+          cmdline = { icon = " ", title = " CMD " },
+          search_down = { icon = "  ", title = " SCAN " },
+          search_up = { icon = "  ", title = " SCAN " },
+          filter = { icon = " ", title = " FILTER " },
+          lua = { icon = " ", title = " LUA " },
+          help = { icon = " ", title = " HELP " },
+        },
+      },
+      routes = {
+        { filter = { event = "msg_show", kind = "", find = "written" }, opts = { skip = true } },
+      },
+      views = {
+        cmdline_popup = {
+          border = { style = "single", padding = { 0, 1 } },
+          position = { row = "40%", col = "50%" },
+          size = { width = 60, height = "auto" },
+        },
+      },
+    },
+  },
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      local notify = require("notify")
+      notify.setup({
+        background_colour = "#131923",
+        fps = 30,
+        render = "compact",
+        stages = "fade",
+        timeout = 3000,
+        top_down = true,
+        max_width = 50,
+      })
+      vim.notify = notify
+    end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      indent = { char = "│", highlight = "IblIndent" },
+      scope = { enabled = true, show_start = false, show_end = false, highlight = "IblScope" },
+      exclude = { filetypes = { "help", "alpha", "dashboard", "lazy", "mason", "notify" } },
+    },
+  },
 }
