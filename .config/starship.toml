@@ -136,10 +136,14 @@ if [ "$mod" -gt 0 ]; then parts="${parts}MOD:${mod} "; fi
 if [ "$new" -gt 0 ]; then parts="${parts}NEW:${new} "; fi
 if [ -n "$ahead" ]; then parts="${parts}↑${ahead} "; fi
 if [ -n "$behind" ]; then parts="${parts}↓${behind} "; fi
-printf "%s" "$parts"
+if [ -n "$parts" ]; then
+  printf " %s" "$parts"
+else
+  printf " CLR "
+fi
 '''
 style = "fg:bg bg:red bold"
-format = "[ $output]($style)"
+format = "[$output]($style)"
 
 [ruby]
 symbol = "RB"
@@ -177,6 +181,6 @@ format = "[$output]($style)"
 
 [custom.prompt_char]
 when = "true"
-command = "if [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 0 ] && [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 141 ]; then printf ' !!'; else printf ' >>'; fi"
+command = "if [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 0 ] && [ \"${STARSHIP_CMD_STATUS:-0}\" -ne 141 ]; then printf '!!'; else printf '>>>'; fi"
 style = "fg:yellow bold"
-format = "[$output]($style)"
+format = "[ $output ]($style)"
