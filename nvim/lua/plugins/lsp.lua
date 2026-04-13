@@ -64,7 +64,7 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local on_attach = function(_, bufnr)
+      local on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, silent = true }
 
         -- GoTo code navigation (same as coc bindings)
@@ -91,19 +91,21 @@ return {
         -- Code action
         vim.keymap.set({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, opts)
 
-        -- Highlight references on cursor hold
-        vim.api.nvim_create_autocmd("CursorHold", {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.document_highlight()
-          end,
-        })
-        vim.api.nvim_create_autocmd("CursorMoved", {
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.clear_references()
-          end,
-        })
+        -- Highlight references on cursor hold (only if server supports it)
+        if client and client.supports_method("textDocument/documentHighlight") then
+          vim.api.nvim_create_autocmd("CursorHold", {
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.document_highlight()
+            end,
+          })
+          vim.api.nvim_create_autocmd("CursorMoved", {
+            buffer = bufnr,
+            callback = function()
+              vim.lsp.buf.clear_references()
+            end,
+          })
+        end
       end
 
       -- Configure each server directly (works with any mason-lspconfig version)
