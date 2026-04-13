@@ -187,9 +187,9 @@ Fuzzy finder with Arasaka color scheme: bg=bg, selected bg=bg_alt, fg=fg, select
 
 #### eza Directory Listings
 
-**File:** `.zshenv` (`EZA_COLORS`)
+**File:** `.zshenv` (`EZA_COLORS`, using `38;2;R;G;B` truecolor sequences)
 
-Color mapping: directories=blue, files=fg, executables=yellow, symlinks=cyan, broken links=red, dates=muted, sizes=cyan, permissions read=yellow/write=red/exec=cyan, owner=yellow, non-owner=orange.
+Color mapping: directories=blue, files=fg, executables=yellow, symlinks=cyan, broken links=red, dates/header/UI chrome=muted or yellow, sizes=cyan, permissions read=yellow/write=red/exec=cyan, owner=yellow, non-owner=orange, Git states=new cyan/modified yellow/deleted red/renamed orange, and file classes pinned to the Arasaka palette (source/music cyan, docs/build yellow, archives/crypto red, compiled artifacts orange).
 
 ### bat Syntax Highlighter
 
