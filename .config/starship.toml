@@ -102,40 +102,38 @@ format = "[$output]($style)"
 [custom.git_state]
 when = "git rev-parse --is-inside-work-tree >/dev/null 2>&1"
 command = '''
-git_status_text=$(git status --porcelain --branch 2>/dev/null) || exit 0
-parts=""
-ahead=""
-behind=""
-if printf "%s\n" "$git_status_text" | grep -q '^## '; then
-  branch_line=$(printf "%s\n" "$git_status_text" | head -n1)
-  ahead=$(printf "%s\n" "$branch_line" | sed -n 's/.*ahead \([0-9][0-9]*\).*/\1/p')
-  behind=$(printf "%s\n" "$branch_line" | sed -n 's/.*behind \([0-9][0-9]*\).*/\1/p')
-fi
-if ! git diff --quiet --ignore-submodules=dirty || ! git diff --cached --quiet --ignore-submodules=dirty || test -n "$(git ls-files --others --exclude-standard)"; then
-  parts="! "
-fi
-if test -n "$(git stash list 2>/dev/null)"; then
-  parts="${parts}≡ "
-fi
-mod=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" && substr($0,1,2)!="??" { if (substr($0,2,1)=="M") c++ } END { print c+0 }')
-add=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="A" || substr($0,1,1)=="M") c++ } END { print c+0 }')
-del=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="D" || substr($0,2,1)=="D") c++ } END { print c+0 }')
-ren=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { if (substr($0,1,1)=="R" || substr($0,2,1)=="R") c++ } END { print c+0 }')
-new=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)=="??" { c++ } END { print c+0 }')
-con=$(printf "%s\n" "$git_status_text" | awk 'substr($0,1,2)!="##" { x=substr($0,1,1); y=substr($0,2,1); if (x=="U" || y=="U") c++ } END { print c+0 }')
-if [ "$con" -gt 0 ]; then parts="${parts}CON:${con} "; fi
-if [ "$add" -gt 0 ]; then parts="${parts}ADD:${add} "; fi
-if [ "$del" -gt 0 ]; then parts="${parts}DEL:${del} "; fi
-if [ "$ren" -gt 0 ]; then parts="${parts}REN:${ren} "; fi
-if [ "$mod" -gt 0 ]; then parts="${parts}MOD:${mod} "; fi
-if [ "$new" -gt 0 ]; then parts="${parts}NEW:${new} "; fi
-if [ -n "$ahead" ]; then parts="${parts}↑${ahead} "; fi
-if [ -n "$behind" ]; then parts="${parts}↓${behind} "; fi
-if [ -n "$parts" ]; then
-  printf " %s" "$parts"
-else
-  printf " CLR "
-fi
+git status --porcelain --branch 2>/dev/null | awk '
+BEGIN { dirty=0 }
+NR==1 && substr($0,1,2)=="##" {
+  if (match($0, /ahead [0-9]+/))  ahead  = substr($0, RSTART+6, RLENGTH-6)
+  if (match($0, /behind [0-9]+/)) behind = substr($0, RSTART+7, RLENGTH-7)
+  next
+}
+{
+  dirty=1
+  if (substr($0,1,2)=="??") { new++; next }
+  x=substr($0,1,1); y=substr($0,2,1)
+  if (x=="U" || y=="U") { con++; next }
+  if (x=="A" || x=="M") add++
+  if (x=="D" || y=="D") del++
+  if (x=="R" || y=="R") ren++
+  if (y=="M") mod++
+}
+END {
+  parts=""
+  if (dirty)          parts="! "
+  if (con>0)          parts=parts "CON:" con " "
+  if (add>0)          parts=parts "ADD:" add " "
+  if (del>0)          parts=parts "DEL:" del " "
+  if (ren>0)          parts=parts "REN:" ren " "
+  if (mod>0)          parts=parts "MOD:" mod " "
+  if (new>0)          parts=parts "NEW:" new " "
+  if (ahead!="")      parts=parts "↑" ahead " "
+  if (behind!="")     parts=parts "↓" behind " "
+  if (parts!="") printf " %s", parts
+  else           printf " CLR "
+}
+'
 '''
 style = "fg:bg bg:red bold"
 format = "[$output]($style)"
